@@ -654,7 +654,7 @@ nav{
    Responsive Navbar
 =========================== */
 
-.menu-toggle{
+.menuToggle{
     display:none;
     font-size:30px;
     cursor:pointer;
@@ -682,7 +682,7 @@ nav{
         display:none;
     }
 
-    .menu-toggle{
+    .menuToggle{
         display:block;
     }
 
