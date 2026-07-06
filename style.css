@@ -614,7 +614,7 @@ nav{
     height:180px;
 }
 
-}
+
 
 @media(max-width:768px){
 
@@ -710,4 +710,5 @@ nav{
     .nav-links a{
         font-size:18px;
     }
+}
 }
