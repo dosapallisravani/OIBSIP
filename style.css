@@ -700,7 +700,7 @@ nav{
     }
 
     .nav-links.active{
-        display:flex;
+        display: flex;
     }
 
     .nav-links li{
