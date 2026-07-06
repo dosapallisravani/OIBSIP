@@ -586,7 +586,7 @@ header{
     padding:20px 30px;
 }
 
-nav{
+.nav-links {
     display:none;
 }
 
@@ -650,7 +650,7 @@ nav{
 .logo img{
     width:55px;
 }
-}/* ===========================
+/* ===========================
    Responsive Navbar
 =========================== */
 
@@ -710,5 +710,6 @@ nav{
     .nav-links a{
         font-size:18px;
     }
+}
 }
 }
