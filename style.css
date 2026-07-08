@@ -580,99 +580,12 @@ FOOTER
 RESPONSIVE
 ========================= */
 
-@media(max-width:992px){
+/* =========================
+   RESPONSIVE
+========================= */
 
-header{
-    padding:20px 30px;
-}
-
-.nav-links {
-    display:none;
-}
-
-.hero-content h1{
-    font-size:55px;
-}
-
-.about{
-    flex-direction:column;
-}
-
-.product-container,
-.why-container,
-.review-container,
-.footer-container{
-    grid-template-columns:1fr;
-}
-
-.about-image img{
-    width:100%;
-}
-
-.card img{
-    width:180px;
-    height:180px;
-}
-
-
-
-@media(max-width:768px){
-
-.hero{
-    width:100%;
-    left:0;
-    top:0;
-    margin:0;
-    padding:0;
-}
-.hero-content h1{
-    font-size:42px;
-}
-
-.hero-content p{
-    font-size:18px;
-}
-
-.products h2,
-.about-content h2,
-.why h2,
-.reviews h2,
-.contact h2{
-    font-size:38px;
-}
-
-.shop-btn,
-.hero-btn{
-    padding:12px 28px;
-}
-
-.logo h2{
-    font-size:30px;
-}
-
-.logo img{
-    width:55px;
-}
-/* ===========================
-   Responsive Navbar
-=========================== */
-
-.menu-toggle{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-    color:#8b5e6c;
-}
-
-/* Mob/* Tablet */
+/* Tablet */
 @media (max-width:992px){
-
-    header{
-         width:100%;
-         left:0;
-         right:0;
-         padding:20px 30px;
-    }
 
     .hero-content h1{
         font-size:55px;
@@ -680,6 +593,12 @@ header{
 
     .about{
         flex-direction:column;
+        text-align:center;
+    }
+
+    .about-image img{
+        width:100%;
+        max-width:500px;
     }
 
     .product-container,
@@ -689,38 +608,39 @@ header{
         grid-template-columns:1fr;
     }
 
-    .about-image img{
-        width:100%;
-    }
-
     .card img{
         width:180px;
         height:180px;
     }
+
 }
 
 
 /* Mobile */
 @media (max-width:768px){
 
-    .hero{
-        padding:0 25px;
+    .top-bar{
+        font-size:12px;
+        padding:8px;
     }
 
-    .hero-content h1{
-        font-size:42px;
+    .navbar{
+        width:100%;
+        height:70px;
+        padding:0 18px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
     }
 
-    .hero-content p{
-        font-size:18px;
+    .logo img{
+        width:45px;
+        height:45px;
     }
 
-    .products h2,
-    .about-content h2,
-    .why h2,
-    .reviews h2,
-    .contact h2{
-        font-size:38px;
+    .logo h2{
+        font-size:30px;
     }
 
     .shop-btn{
@@ -731,26 +651,7 @@ header{
         display:block;
         font-size:30px;
         cursor:pointer;
-        color:#8b5e6c;
-    }
-
-    .navbar{
-        width:100%;
-        padding:12px 16px;
-        display:flex;
-        margin:0;
-        justify-content:space-between;
-        align-items:center;
-        position:relative;
-    }
-
-    .logo h2{
-        font-size:32px;
-    }
-
-    .logo img{
-        width:45px;
-        height:45px;
+        color:#B76E79;
     }
 
     .nav-links{
@@ -760,34 +661,66 @@ header{
     .nav-links.active{
         display:flex;
         flex-direction:column;
+        align-items:center;
         position:absolute;
-        top:80px;
-        right:15px;
-       width:220px;
-       background:rgba(255,255,255,0.18);
-       backdrop-filter:blur(15px);
-       -webkit-backdrop-filter:blur(15px);
-       border:1px solid rgba(255,255,255,0.3);
-       border-radius:15px;
-       padding:20px;
-       gap:18px;
-       box-shadow:0 8px 25px rgba(0,0,0,0.15);
-       z-index:1000;
-        
+        top:72px;
+        right:12px;
+        width:150px;
+        padding:12px;
+        gap:12px;
+        background:transparent;
+        z-index:1000;
     }
 
     .nav-links li{
         list-style:none;
         width:100%;
+        text-align:center;
     }
 
     .nav-links a{
         display:block;
-        width:100%;
-        text-align:center;
         text-decoration:none;
-        font-size:18px;
-        font-weight:600;
         color:#7d4b5b;
+        font-size:16px;
+        font-weight:600;
+    }
+
+    .hero{
+        margin-top:110px;
+        padding:0 25px;
+        height:90vh;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-content p{
+        font-size:17px;
+    }
+
+    .hero-btn{
+        padding:12px 28px;
+    }
+
+    .products h2,
+    .about-content h2,
+    .why h2,
+    .reviews h2,
+    .contact h2{
+        font-size:36px;
+    }
+
+    .about,
+    .products,
+    .why,
+    .reviews,
+    .contact{
+        padding:80px 25px;
+    }
+
+    .footer{
+        text-align:center;
     }
 }
