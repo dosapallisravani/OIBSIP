@@ -665,7 +665,7 @@ header{
 @media (max-width:768px){
 
     .navbar{
-        padding:15px 20px;
+        padding:12px 20px;
         position:relative;
     }
 
@@ -674,8 +674,8 @@ header{
     }
 
     .logo img{
-        width:50px;
-        height:50px;
+        width:45px;
+        height:45px;
     }
 
     .shop-btn{
@@ -687,16 +687,19 @@ header{
     }
 
     .nav-links{
-        display:none;
+        display:flex;
         position:absolute;
-        top:100%;
-        left:0;
-        width:100%;
-        background:#f8e8ee;
+        top:75%;
+        rigth:20px;
+      
+        width:220px;
+        background:#fff9f6;
+        border-radius: 12px
         flex-direction:column;
         text-align:center;
         padding:20px 0;
-        box-shadow:0 8px 20px rgba(0,0,0,.1);
+        box-shadow:0 8px 20px rgba(0,0,0,.1.5);
+        z-index:1000;
     }
 
     .nav-links.active{
@@ -709,5 +712,9 @@ header{
 
     .nav-links a{
         font-size:18px;
+       color:#7d4b5b;
+    text-decoration:none;
+    font-weight:600;
+    
     }
 }
