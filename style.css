@@ -687,34 +687,34 @@ header{
     }
 
     .nav-links{
-        display:flex;
-        position:absolute;
-        top:75%;
-        rigth:20px;
-      
-        width:220px;
-        background:#fff9f6;
-        border-radius: 12px
-        flex-direction:column;
-        text-align:center;
-        padding:20px 0;
-        box-shadow:0 8px 20px rgba(0,0,0,.1.5);
-        z-index:1000;
+      display:none;
     }
 
     .nav-links.active{
         display: flex;
+         display:flex !important;
+    flex-direction:column !important;
+    position:absolute;
+    top:80px;
+    right:20px;
+    width:220px;
+    background:#fff9f6;
+    border-radius:12px;
+    padding:20px;
+    gap:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    z-index:1000;
     }
 
     .nav-links li{
-        margin:15px 0;
-    }
+        list-style:none;
+        width:100%;   }
 
     .nav-links a{
         font-size:18px;
-       color:#7d4b5b;
-    text-decoration:none;
-    font-weight:600;
+        color:#7d4b5b;
+        text-decoration:none;
+        font-weight:600;
     
     }
 }
