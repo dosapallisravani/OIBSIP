@@ -661,8 +661,72 @@ header{
     color:#8b5e6c;
 }
 
+/* Mob/* Tablet */
+@media (max-width:992px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    .hero-content h1{
+        font-size:55px;
+    }
+
+    .about{
+        flex-direction:column;
+    }
+
+    .product-container,
+    .why-container,
+    .review-container,
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .about-image img{
+        width:100%;
+    }
+
+    .card img{
+        width:180px;
+        height:180px;
+    }
+}
+
+
 /* Mobile */
 @media (max-width:768px){
+
+    .hero{
+        padding:0 25px;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .products h2,
+    .about-content h2,
+    .why h2,
+    .reviews h2,
+    .contact h2{
+        font-size:38px;
+    }
+
+    .shop-btn{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+        font-size:30px;
+        cursor:pointer;
+        color:#8b5e6c;
+    }
 
     .navbar{
         width:100%;
@@ -670,7 +734,7 @@ header{
         display:flex;
         justify-content:space-between;
         align-items:center;
-        position:relative; ;
+        position:relative;
     }
 
     .logo h2{
@@ -682,53 +746,37 @@ header{
         height:45px;
     }
 
-    .shop-btn{
+    .nav-links{
         display:none;
     }
 
-    .menu-toggle{
-        display:block;
-    }
-
-    .nav-links{
-         display:none;
-         display:block;
-         width:100%;
-         text-align:center;
-         font-size:18px;
-         color:#7d4b5b;
-         text-decoration:none;
-         font-weight:600;
-         padding:10px 0;
-}
-       
-    }
-
     .nav-links.active{
-        display: flex;
-         display:flex !important;
-    flex-direction:column !important;
-    position:absolute;
-    top:80px;
-    right:20px;
-    width:220px;
-    background:#fff9f6;
-    border-radius:12px;
-    padding:20px;
-    gap:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    z-index:1000;
+        display:flex;
+        flex-direction:column;
+        position:absolute;
+        top:80px;
+        right:15px;
+        width:220px;
+        background:#fff9f6;
+        border-radius:12px;
+        padding:20px;
+        gap:20px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        z-index:1000;
     }
 
     .nav-links li{
         list-style:none;
-        width:100%;   }
+        width:100%;
+    }
 
     .nav-links a{
-        font-size:18px;
-        color:#7d4b5b;
+        display:block;
+        width:100%;
+        text-align:center;
         text-decoration:none;
+        font-size:18px;
         font-weight:600;
-    
+        color:#7d4b5b;
     }
 }
