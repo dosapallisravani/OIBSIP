@@ -151,3 +151,27 @@ window.addEventListener("scroll",()=>{
     });
 
 });
+/*==============================
+SCROLL TO TOP BUTTON
+==============================*/
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 300) {
+        topBtn.style.display = "flex";
+    } else {
+        topBtn.style.display = "none";
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
