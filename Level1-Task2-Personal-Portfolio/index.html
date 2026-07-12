@@ -2,525 +2,612 @@
 <html lang="en">
 
 <head>
-
+    <!-- =====================================
+         META TAGS
+    ====================================== -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sravani | Portfolio</title>
+    <title>Sravani Dosapalli | Personal Portfolio</title>
+
+    <meta name="description"
+        content="Premium Personal Portfolio Website of Sravani Dosapalli - B.Tech CSE Student.">
+
+    <meta name="keywords"
+        content="Portfolio, Web Developer, Student Portfolio, Oasis Infobyte, HTML CSS JavaScript">
+
+    <meta name="author" content="Sravani Dosapalli">
 
     <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
     <!-- CSS -->
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-    <div class="loader">
 
-    <div class="loader-circle"></div>
+    <!-- ==========================
+         PRELOADER
+    =========================== -->
 
-    <h2>Sravani.</h2>
+    <div id="preloader">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
+        <h2>Loading Portfolio...</h2>
     </div>
-<div class="bg-shapes">
 
-    <span class="shape one"></span>
+    <!-- Cursor -->
+    <div class="cursor"></div>
 
-    <span class="shape two"></span>
+    <!-- Background Shapes -->
 
-    <span class="shape three"></span>
+    <div class="bg-shapes">
 
-    <span class="shape four"></span>
-
-</div>
-<!--================ HEADER ================-->
-
-<header class="header">
-
-<nav class="navbar">
-
-<div class="logo">
-
-<h2>Sravani<span>.</span></h2>
-
-</div>
-
-<ul class="nav-links">
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<a href="#" class="resume-btn">
-
-Download CV
-
-</a>
-
-<div class="menu-toggle">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
-
-</nav>
-
-</header>
-
-<!--================ HERO SECTION ================-->
-
-<section class="hero" id="home">
-
-<div class="hero-left">
-
-<p class="hello">
-
-Hello, I'm
-
-</p>
-
-<h1>
-
-Sravani
-
-<span>Dosapalli</span>
-
-</h1>
-
-<h3>
-
-Frontend Developer
-    <h3>
-
-I'm a
-
-<span id="typing"></span>
-
-    </h3>
-
-</h3>
-
-<p>
-
-Passionate about creating elegant, responsive and modern
-websites with beautiful user experiences.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#projects" class="btn">
-
-View Projects
-
-</a>
-
-<a href="#contact" class="btn-outline">
-
-Hire Me
-
-</a>
-
-</div>
-
-<div class="social-icons">
-
-<a href="#"><i class="fab fa-github"></i></a>
-
-<a href="#"><i class="fab fa-linkedin"></i></a>
-
-<a href="#"><i class="fab fa-instagram"></i></a>
-
-<a href="#"><i class="fas fa-envelope"></i></a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="profile-card">
-
-<img src="images/profile.png" alt="Profile">
-
-</div>
-
-</div>
-    <div class="scroll-down">
-
-    <i class="fa-solid fa-angles-down"></i>
+        <span class="shape one"></span>
+        <span class="shape two"></span>
+        <span class="shape three"></span>
+        <span class="shape four"></span>
 
     </div>
 
-</section>
+    <!-- =====================================
+            HEADER
+    ====================================== -->
 
-<!--================ ABOUT ================-->
+    <header id="header">
 
-<section class="about" id="about">
+        <nav class="navbar">
 
-<div class="section-title">
+            <a href="#" class="logo">
 
-<h2>About Me</h2>
+                <span>S</span>ravani
 
-<p>
+            </a>
 
-Get to know me
+            <ul class="nav-links">
 
-</p>
+                <li><a href="#home" class="active">Home</a></li>
 
-</div>
+                <li><a href="#about">About</a></li>
 
-<div class="about-container">
+                <li><a href="#skills">Skills</a></li>
 
-<div class="about-image">
+                <li><a href="#projects">Projects</a></li>
 
-<img src="images/profile.png" alt="Profile">
+                <li><a href="#education">Education</a></li>
 
-</div>
+                <li><a href="#contact">Contact</a></li>
 
-<div class="about-content">
+            </ul>
 
-<h3>
+            <div class="menu-btn">
 
-I'm Sravani 👋
+                <i class="ri-menu-3-line"></i>
 
-</h3>
+            </div>
 
-<p>
+        </nav>
 
-I'm a Computer Science Engineering student who loves
-Frontend Development and UI Design. My goal is to build
-beautiful, responsive and user-friendly websites.
+    </header>
 
-</p>
+    <!-- =====================================
+            HERO
+    ====================================== -->
 
-<div class="about-info">
+    <section id="home" class="hero">
 
-<div class="info-card">
+        <div class="container hero-container">
 
-<i class="fa-solid fa-user-graduate"></i>
+            <div class="hero-content">
 
-<h4>Education</h4>
+                <span class="subtitle">
 
-<p>B.Tech CSE</p>
+                    Hello, I'm
 
-</div>
+                </span>
 
-<div class="info-card">
+                <h1>
 
-<i class="fa-solid fa-location-dot"></i>
+                    Sravani <span>Dosapalli</span>
 
-<h4>Location</h4>
+                </h1>
 
-<p>Andhra Pradesh</p>
+                <h3>
 
-</div>
+                    <span class="typing"></span>
 
-<div class="info-card">
+                </h3>
 
-<i class="fa-solid fa-laptop-code"></i>
+                <p>
 
-<h4>Experience</h4>
+                    Passionate B.Tech Computer Science Engineering student
+                    interested in Web Development, UI Design and creating
+                    modern responsive websites with elegant user experiences.
 
-<p>Frontend Projects</p>
+                </p>
 
-</div>
+                <div class="hero-buttons">
 
-</div>
+                    <a href="resume.pdf" class="btn primary" download>
 
-</div>
+                        Download Resume
 
-</div>
+                    </a>
 
-  </section>
-  <!--================ SKILLS ================-->
+                    <a href="#contact" class="btn secondary">
 
-<section class="skills" id="skills">
+                        Contact Me
 
-<div class="section-title">
+                    </a>
 
-<h2>My Skills</h2>
+                </div>
 
-<p>Technologies I Work With</p>
+                <div class="social-icons">
 
-</div>
+                    <a href="#"><i class="ri-github-fill"></i></a>
 
-<div class="skills-container">
+                    <a href="#"><i class="ri-linkedin-fill"></i></a>
 
-<div class="skill-card">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
 
-<i class="fab fa-html5"></i>
+                    <a href="#"><i class="ri-mail-line"></i></a>
 
-<h3>HTML5</h3>
+                </div>
 
-<p>Semantic & Responsive Layouts</p>
+            </div>
 
-</div>
+            <div class="hero-image">
 
-<div class="skill-card">
+                <div class="blob">
 
-<i class="fab fa-css3-alt"></i>
+                    <img src="images/profile.png" alt="Sravani Profile">
 
-<h3>CSS3</h3>
+                </div>
 
-<p>Modern UI & Animations</p>
+            </div>
 
-</div>
+        </div>
 
-<div class="skill-card">
+    </section>
 
-<i class="fab fa-js"></i>
+    <!-- =====================================
+            ABOUT
+    ====================================== -->
 
-<h3>JavaScript</h3>
+    <section id="about">
 
-<p>Interactive Web Applications</p>
+        <div class="container">
 
-</div>
+            <h2 class="section-title">
 
-<div class="skill-card">
+                About Me
 
-<i class="fab fa-java"></i>
+            </h2>
 
-<h3>Java</h3>
+            <div class="glass-card about-card">
 
-<p>Object Oriented Programming</p>
+                <p>
 
-</div>
+                    I'm Sravani Dosapalli, a B.Tech Computer Science Engineering
+                    student passionate about designing elegant websites and
+                    learning modern web technologies.
 
-<div class="skill-card">
+                    I enjoy building premium responsive interfaces,
+                    solving real-world problems and continuously improving my
+                    programming skills.
 
-<i class="fas fa-database"></i>
+                </p>
 
-<h3>SQL</h3>
+                <div class="about-grid">
 
-<p>Database Management</p>
+                    <div>
 
-</div>
+                        <h4>Name</h4>
 
-<div class="skill-card">
+                        <span>Sravani Dosapalli</span>
 
-<i class="fas fa-code"></i>
+                    </div>
 
-<h3>Responsive Design</h3>
+                    <div>
 
-<p>Mobile Friendly Websites</p>
+                        <h4>Degree</h4>
 
-</div>
+                        <span>B.Tech CSE</span>
 
-</div>
+                    </div>
 
-</section>
+                    <div>
 
-<!--================ PROJECTS ================-->
+                        <h4>Location</h4>
 
-<section class="projects" id="projects">
+                        <span>Andhra Pradesh</span>
 
-<div class="section-title">
+                    </div>
 
-<h2>My Projects</h2>
+                    <div>
 
-<p>Some of My Recent Work</p>
+                        <h4>Email</h4>
 
-</div>
+                        <span>example@email.com</span>
 
-<div class="projects-container">
+                    </div>
 
-<div class="project-card">
+                </div>
 
-<img src="images/project1.jpg" alt="Landing Page">
+            </div>
 
-<div class="project-content">
+        </div>
 
-<h3>Luméra Landing Page</h3>
+    </section>
 
-<p>
+    <!-- =====================================
+            SKILLS
+    ====================================== -->
 
-Luxury skincare landing page built using HTML, CSS and JavaScript.
+    <section id="skills">
 
-</p>
+        <div class="container">
 
-<div class="project-buttons">
+            <h2 class="section-title">
 
-<a href="#">Live Demo</a>
+                Skills
 
-<a href="#">GitHub</a>
+            </h2>
 
-</div>
+            <div class="skills-grid">
 
-</div>
+                <div class="glass-card skill-card">
 
-</div>
+                    <h3>HTML</h3>
 
-<div class="project-card">
+                    <div class="progress">
 
-<img src="images/project2.jpg" alt="Portfolio">
+                        <span data-width="95%"></span>
 
-<div class="project-content">
+                    </div>
 
-<h3>Personal Portfolio</h3>
+                </div>
 
-<p>
+                <div class="glass-card skill-card">
 
-Modern responsive portfolio website with premium UI design.
+                    <h3>CSS</h3>
 
-</p>
+                    <div class="progress">
 
-<div class="project-buttons">
+                        <span data-width="90%"></span>
 
-<a href="#">Live Demo</a>
+                    </div>
 
-<a href="#">GitHub</a>
+                </div>
 
-</div>
+                <div class="glass-card skill-card">
 
-</div>
+                    <h3>JavaScript</h3>
 
-</div>
+                    <div class="progress">
 
-<div class="project-card">
+                        <span data-width="80%"></span>
 
-<img src="images/project3.jpg" alt="Weather App">
+                    </div>
 
-<div class="project-content">
+                </div>
 
-<h3>Weather App</h3>
+                <div class="glass-card skill-card">
 
-<p>
+                    <h3>C Programming</h3>
 
-Simple weather application using HTML, CSS and JavaScript.
+                    <div class="progress">
 
-</p>
+                        <span data-width="85%"></span>
 
-<div class="project-buttons">
+                    </div>
 
-<a href="#">Live Demo</a>
+                </div>
 
-<a href="#">GitHub</a>
+                <div class="glass-card skill-card">
 
-</div>
+                    <h3>Java</h3>
 
-</div>
+                    <div class="progress">
 
-</div>
+                        <span data-width="75%"></span>
 
-</div>
+                    </div>
 
-</section>
+                </div>
 
-<!--================ EDUCATION ================-->
+                <div class="glass-card skill-card">
 
-<section class="education">
+                    <h3>SQL</h3>
 
-<div class="section-title">
+                    <div class="progress">
 
-<h2>Education</h2>
+                        <span data-width="80%"></span>
 
-<p>My Academic Journey</p>
+                    </div>
 
-</div>
+                </div>
 
-<div class="education-card">
+            </div>
 
-<h3>B.Tech - Computer Science Engineering</h3>
+        </div>
 
-<h4>Current Pursuing</h4>
+    </section>
 
-<p>
+    <!-- =====================================
+            PROJECTS
+    ====================================== -->
 
-Learning Web Development, Programming, Database Management and Software Engineering.
+    <section id="projects">
 
-</p>
+        <div class="container">
 
-</div>
+            <h2 class="section-title">
 
-</section>
+                Projects
 
-<!--================ CONTACT ================-->
+            </h2>
 
-<section class="contact" id="contact">
+            <div class="projects-grid">
 
-<div class="section-title">
+                <div class="glass-card project-card">
 
-<h2>Contact Me</h2>
+                    <img src="images/project1.jpg" alt="Project">
 
-<p>Let's Build Something Amazing Together</p>
+                    <div class="project-content">
 
-</div>
+                        <h3>Luxury Landing Page</h3>
 
-<div class="contact-container">
+                        <p>
 
-<div class="contact-card">
+                            Premium responsive landing page with elegant UI.
 
-<i class="fas fa-envelope"></i>
+                        </p>
 
-<h3>Email</h3>
+                        <a href="#" class="project-btn">
 
-<p>yourmail@gmail.com</p>
+                            View Project
 
-</div>
+                        </a>
 
-<div class="contact-card">
+                    </div>
 
-<i class="fas fa-phone"></i>
+                </div>
 
-<h3>Phone</h3>
+                <div class="glass-card project-card">
 
-<p>+91 XXXXXXXXXX</p>
+                    <img src="images/project2.jpg" alt="Project">
 
-</div>
+                    <div class="project-content">
 
-<div class="contact-card">
+                        <h3>Portfolio Website</h3>
 
-<i class="fab fa-linkedin"></i>
+                        <p>
 
-<h3>LinkedIn</h3>
+                            Modern animated personal portfolio website.
 
-<p>linkedin.com/in/yourprofile</p>
+                        </p>
 
-</div>
+                        <a href="#" class="project-btn">
 
-</div>
+                            View Project
 
-</section>
+                        </a>
 
-<!--================ FOOTER ================-->
+                    </div>
 
-<footer>
+                </div>
 
-<p>
+                <div class="glass-card project-card">
 
-© 2026 Sravani Dosapalli | All Rights Reserved.
+                    <img src="images/project3.jpg" alt="Project">
 
-</p>
-    <!-- Scroll To Top Button -->
+                    <div class="project-content">
 
-<button id="topBtn">
+                        <h3>Student Portal UI</h3>
 
-    <i class="fa-solid fa-arrow-up"></i>
+                        <p>
 
-</button>
+                            Responsive academic dashboard interface.
 
-</footer>
+                        </p>
 
-<script src="script.js"></script>
+                        <a href="#" class="project-btn">
+
+                            View Project
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+            EDUCATION
+    ====================================== -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Education
+
+            </h2>
+
+            <div class="timeline">
+
+                <div class="glass-card timeline-item">
+
+                    <h3>B.Tech Computer Science Engineering</h3>
+
+                    <span>2024 - Present</span>
+
+                    <p>
+
+                        Pursuing B.Tech in Computer Science Engineering with
+                        focus on programming, web development and software
+                        engineering.
+
+                    </p>
+
+                </div>
+
+                <div class="glass-card timeline-item">
+
+                    <h3>Diploma in Computer Engineering</h3>
+
+                    <span>Completed</span>
+
+                    <p>
+
+                        Built strong fundamentals in programming,
+                        networking and database management.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+            CONTACT
+    ====================================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Contact Me
+
+            </h2>
+
+            <div class="contact-wrapper">
+
+                <div class="contact-info">
+
+                    <div class="glass-card contact-card">
+
+                        <i class="ri-mail-line"></i>
+
+                        <h3>Email</h3>
+
+                        <p>example@email.com</p>
+
+                    </div>
+
+                    <div class="glass-card contact-card">
+
+                        <i class="ri-phone-line"></i>
+
+                        <h3>Phone</h3>
+
+                        <p>+91 XXXXX XXXXX</p>
+
+                    </div>
+
+                    <div class="glass-card contact-card">
+
+                        <i class="ri-map-pin-line"></i>
+
+                        <h3>Location</h3>
+
+                        <p>Andhra Pradesh, India</p>
+
+                    </div>
+
+                </div>
+
+                <form class="glass-card contact-form">
+
+                    <input type="text" placeholder="Your Name" required>
+
+                    <input type="email" placeholder="Email Address" required>
+
+                    <input type="text" placeholder="Subject">
+
+                    <textarea rows="6" placeholder="Message"></textarea>
+
+                    <button class="btn primary">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+            FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-social">
+
+                <a href="#"><i class="ri-github-fill"></i></a>
+
+                <a href="#"><i class="ri-linkedin-fill"></i></a>
+
+                <a href="#"><i class="ri-instagram-line"></i></a>
+
+                <a href="#"><i class="ri-mail-line"></i></a>
+
+            </div>
+
+            <p>
+
+                © 2026 Sravani Dosapalli | All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+
+    <button id="scrollTop">
+
+        <i class="ri-arrow-up-line"></i>
+
+    </button>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
 
 </body>
 
-  </html>
+</html>
