@@ -1,42 +1,495 @@
+/*==================================================
+  PRELOADER
+==================================================*/
 
-// ==========================
-// Mobile Menu
-// ==========================
+window.addEventListener("load", () => {
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+    const preloader = document.getElementById("preloader");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    setTimeout(() => {
+
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
+
+    }, 800);
+
 });
 
-// ==========================
-// Close Menu After Click
-// ==========================
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+/*==================================================
+  TYPING ANIMATION
+==================================================*/
 
-    link.addEventListener("click", () => {
+const typingText = document.querySelector(".typing");
+
+const words = [
+    "Web Developer",
+    "UI Designer",
+    "CSE Student",
+    "Creative Problem Solver"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+
+function typingEffect(){
+
+    let currentWord = words[wordIndex];
+
+
+    if(!deleting){
+
+        typingText.textContent =
+        currentWord.substring(0, charIndex++);
+
+
+        if(charIndex > currentWord.length){
+
+            deleting = true;
+
+            setTimeout(typingEffect,1000);
+
+            return;
+
+        }
+
+    }
+    else{
+
+        typingText.textContent =
+        currentWord.substring(0, charIndex--);
+
+
+        if(charIndex < 0){
+
+            deleting = false;
+
+            wordIndex++;
+
+            if(wordIndex >= words.length){
+
+                wordIndex = 0;
+
+            }
+
+        }
+
+    }
+
+
+    setTimeout(
+        typingEffect,
+        deleting ? 50 : 100
+    );
+
+}
+
+
+typingEffect();
+
+
+
+/*==================================================
+  MOBILE NAVBAR
+==================================================*/
+
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const navLinks = document.querySelector(".nav-links");
+
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+    menuBtn.classList.toggle("active");
+
+});
+
+
+
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
 
         navLinks.classList.remove("active");
+
+        menuBtn.classList.remove("active");
 
     });
 
 });
 
-// ==========================
-// Smooth Scroll
-// ==========================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-    anchor.addEventListener("click", function(e){
+/*==================================================
+  HEADER SHADOW ON SCROLL
+==================================================*/
 
-        e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute("href"));
+const header = document.getElementById("header");
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 50){
+
+        header.classList.add("scrolled");
+
+    }
+    else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+
+/*==================================================
+  ACTIVE NAVIGATION HIGHLIGHT
+==================================================*/
+
+
+const sections =
+document.querySelectorAll("section");
+
+
+const navItems =
+document.querySelectorAll(".nav-links a");
+
+
+window.addEventListener("scroll",()=>{
+
+
+    let current="";
+
+
+    sections.forEach(section=>{
+
+
+        const sectionTop =
+        section.offsetTop - 150;
+
+
+        if(scrollY >= sectionTop){
+
+            current = section.getAttribute("id");
+
+        }
+
+
+    });
+
+
+
+    navItems.forEach(link=>{
+
+
+        link.classList.remove("active");
+
+
+        if(link.getAttribute("href")
+        === "#" + current){
+
+            link.classList.add("active");
+
+        }
+
+
+    });
+
+
+});
+
+
+
+/*==================================================
+  SCROLL REVEAL ANIMATION
+==================================================*/
+
+
+const revealElements =
+document.querySelectorAll(
+".glass-card, .section-title"
+);
+
+
+const revealObserver =
+new IntersectionObserver(
+(entries)=>{
+
+
+    entries.forEach(entry=>{
+
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("reveal","active");
+
+        }
+
+
+    });
+
+
+},
+{
+    threshold:0.15
+}
+);
+
+
+
+revealElements.forEach(element=>{
+
+    revealObserver.observe(element);
+
+});
+
+
+
+/*==================================================
+  SKILL PROGRESS BAR ANIMATION
+==================================================*/
+
+
+const skillSection =
+document.querySelector("#skills");
+
+
+const progressBars =
+document.querySelectorAll(".progress span");
+
+
+
+const skillObserver =
+new IntersectionObserver(
+(entries)=>{
+
+
+    if(entries[0].isIntersecting){
+
+
+        progressBars.forEach(bar=>{
+
+
+            bar.style.width =
+            bar.getAttribute("data-width");
+
+
+        });
+
+
+    }
+
+
+},
+{
+    threshold:0.4
+}
+);
+
+
+
+if(skillSection){
+
+    skillObserver.observe(skillSection);
+
+}
+
+
+
+/*==================================================
+  SCROLL TO TOP BUTTON
+==================================================*/
+
+
+const scrollBtn =
+document.getElementById("scrollTop");
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 400){
+
+        scrollBtn.classList.add("show");
+
+    }
+    else{
+
+        scrollBtn.classList.remove("show");
+
+    }
+
+
+});
+
+
+
+scrollBtn.addEventListener("click",()=>{
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+});
+
+
+
+/*==================================================
+  CUSTOM CURSOR EFFECT
+==================================================*/
+
+
+const cursor =
+document.querySelector(".cursor");
+
+
+
+if(window.innerWidth > 768){
+
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+
+    cursor.style.left =
+    e.clientX + "px";
+
+
+    cursor.style.top =
+    e.clientY + "px";
+
+
+});
+
+
+
+document.querySelectorAll("a,button")
+.forEach(item=>{
+
+
+    item.addEventListener(
+    "mouseenter",
+    ()=>{
+
+        cursor.style.transform =
+        "translate(-50%,-50%) scale(2)";
+
+    });
+
+
+
+    item.addEventListener(
+    "mouseleave",
+    ()=>{
+
+        cursor.style.transform =
+        "translate(-50%,-50%) scale(1)";
+
+    });
+
+
+});
+
+
+}
+
+
+
+/*==================================================
+  BUTTON RIPPLE EFFECT
+==================================================*/
+
+
+document.querySelectorAll(".btn")
+.forEach(button=>{
+
+
+    button.addEventListener(
+    "click",
+    function(e){
+
+
+        const ripple =
+        document.createElement("span");
+
+
+        const rect =
+        this.getBoundingClientRect();
+
+
+        ripple.style.left =
+        e.clientX - rect.left + "px";
+
+
+        ripple.style.top =
+        e.clientY - rect.top + "px";
+
+
+        ripple.classList.add("ripple");
+
+
+        this.appendChild(ripple);
+
+
+
+        setTimeout(()=>{
+
+            ripple.remove();
+
+        },600);
+
+
+    });
+
+
+});
+
+
+
+/*==================================================
+  SMOOTH ANCHOR SCROLL
+==================================================*/
+
+
+document.querySelectorAll(
+'a[href^="#"]'
+)
+.forEach(anchor=>{
+
+
+    anchor.addEventListener(
+    "click",
+    function(e){
+
+
+        const target =
+        document.querySelector(
+        this.getAttribute("href")
+        );
+
 
         if(target){
+
+            e.preventDefault();
+
 
             target.scrollIntoView({
 
@@ -46,206 +499,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         }
 
-    });
-
-});
-
-// ==========================
-// Header Shadow on Scroll
-// ==========================
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 50){
-
-        header.style.boxShadow="0 10px 30px rgba(0,0,0,.12)";
-        header.style.background="rgba(255,255,255,.98)";
-
-    }
-
-    else{
-
-        header.style.boxShadow="none";
-        header.style.background="rgba(255,255,255,.95)";
-
-    }
-
-});
-
-// ==========================
-// Reveal Animation
-// ==========================
-
-const reveals = document.querySelectorAll(
-
-".about-card,.skills-card,.project-card,.education-card,.contact-box"
-
-);
-
-function revealElements(){
-
-    reveals.forEach(item=>{
-
-        const windowHeight = window.innerHeight;
-
-        const top = item.getBoundingClientRect().top;
-
-        if(top < windowHeight - 100){
-
-            item.style.opacity="1";
-            item.style.transform="translateY(0)";
-
-        }
 
     });
-
-}
-
-reveals.forEach(item=>{
-
-    item.style.opacity="0";
-    item.style.transform="translateY(40px)";
-    item.style.transition=".8s ease";
-
-});
-
-window.addEventListener("scroll",revealElements);
-
-revealElements();
-
-// ==========================
-// Active Navigation
-// ==========================
-
-const sections=document.querySelectorAll("section");
-const navItems=document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
-
-    let current="";
-
-    sections.forEach(section=>{
-
-        const sectionTop=section.offsetTop-150;
-
-        if(scrollY>=sectionTop){
-
-            current=section.getAttribute("id");
-
-        }
-
-    });
-
-    navItems.forEach(link=>{
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href")==="#"+current){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-/*==============================
-SCROLL TO TOP BUTTON
-==============================*/
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 300) {
-        topBtn.style.display = "flex";
-    } else {
-        topBtn.style.display = "none";
-    }
-
-});
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-});
-/*==============================
-TYPING ANIMATION
-==============================*/
-
-const words = [
-
-"Frontend Developer",
-
-"Web Designer",
-
-"UI Designer",
-
-"CSE Student"
-
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-const typing = document.getElementById("typing");
-
-function typeEffect(){
-
-    const currentWord = words[wordIndex];
-
-    if(!isDeleting){
-
-        typing.textContent = currentWord.substring(0, charIndex++);
-    }
-
-    else{
-
-        typing.textContent = currentWord.substring(0, charIndex--);
-    }
-
-    if(!isDeleting && charIndex === currentWord.length + 1){
-
-        isDeleting = true;
-
-        setTimeout(typeEffect,1200);
-
-        return;
-
-    }
-
-    if(isDeleting && charIndex === 0){
-
-        isDeleting = false;
-
-        wordIndex = (wordIndex + 1) % words.length;
-
-    }
-
-    setTimeout(typeEffect, isDeleting ? 60 : 120);
-
-}
-
-typeEffect();
-/*==============================
-LOADER
-==============================*/
-
-window.addEventListener("load",()=>{
-
-const loader=document.querySelector(".loader");
-
-setTimeout(()=>{
-
-loader.classList.add("hide");
-
-},1200);
 
 });
