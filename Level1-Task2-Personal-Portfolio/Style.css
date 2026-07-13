@@ -370,11 +370,16 @@ header.scrolled{
 ==================================================*/
 
 .hero{
-
     min-height:100vh;
     display:flex;
     align-items:center;
+    justify-content:space-between;
 
+    background: linear-gradient(rgba(255,248,251,.85), rgba(255,248,251,.85)),
+                url("images/hero-bg.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
 .hero-container{
