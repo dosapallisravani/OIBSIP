@@ -68,7 +68,7 @@ Add your GitHub Pages link here after deployment.
 
 Example:
 
-https://dosapallisravani.github.io/OIBSIP/Task2-Personal-Portfolio/
+https://dosapallisravani.github.io/OIBSIP/Level1-Task2-Personal-Portfolio/
 
 ---
 
