@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
 ==================================================*/
 
 const typingText = document.querySelector(".typing");
-
+if(typingText){
 const words = [
     "Frontend Developer",
     "UI Designer",
@@ -87,7 +87,7 @@ function typingEffect(){
 
 typingEffect();
 
-
+}
 
 /*==================================================
   MOBILE NAVBAR
