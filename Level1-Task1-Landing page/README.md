@@ -32,7 +32,7 @@ Lumera/
 ```
 
 ## 🚀 Live Demo
-https://dosapallisravani.github.io/OIBSIP/Level1-Task1-Landing page
+https://dosapallisravani.github.io/OIBSIP/Level1-Task1-Landing page/
 
 ## 📸 Screenshot
 (Add your project screenshot here)
