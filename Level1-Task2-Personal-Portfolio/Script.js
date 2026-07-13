@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 const typingText = document.querySelector(".typing");
 
 const words = [
-    "Web Developer",
+    "Frontend Developer",
     "UI Designer",
     "CSE Student",
     "Creative Problem Solver"
