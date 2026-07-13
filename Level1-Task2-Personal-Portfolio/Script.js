@@ -81,9 +81,7 @@ function typingEffect(){
 
     setTimeout(
         typingEffect,
-        deleting ? 50 : 100
-    );
-
+        deleting ? 50 : 100);
 }
 
 
