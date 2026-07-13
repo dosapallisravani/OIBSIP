@@ -423,6 +423,19 @@ header.scrolled{
     max-width:550px;
 
 }
+.hero{
+
+background:
+linear-gradient(rgba(255,248,251,.85), rgba(255,248,251,.85)),
+url("images/hero-bg.png");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+}
 
 /*==================================================
   HERO IMAGE
