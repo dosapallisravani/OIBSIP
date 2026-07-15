@@ -78,14 +78,10 @@ margin:auto;
 min-height:100vh;
 
 background:
-
 linear-gradient(
-rgba(10,18,30,.45),
-rgba(10,18,30,.65)
-),
-
-url("images/bg.jfif");
-
+rgba(0,0,0,.18),
+rgba(0,0,0,.28)),
+url("images/");
 background-size:cover;
 
 background-position:center;
