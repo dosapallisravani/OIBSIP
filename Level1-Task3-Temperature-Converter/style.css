@@ -1,150 +1,218 @@
-/* ==========================================
-   GOOGLE FONT
-========================================== */
-
+/*=========================================
+ GOOGLE FONT
+=========================================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* ==========================================
-   ROOT
-========================================== */
+/*=========================================
+ ROOT VARIABLES
+=========================================*/
 
 :root{
 
-    --bg1:#2E123F;
-    --bg2:#6B2D6F;
-    --bg3:#FF7A4F;
-    --bg4:#FFB14A;
-
-    --glass:rgba(255,255,255,.10);
-    --glass-border:rgba(255,255,255,.18);
-
+    --primary:#FF8A3D;
+    --secondary:#FF4F81;
+    --purple:#6C3BFF;
+    --glass:rgba(255,255,255,.12);
+    --border:rgba(255,255,255,.18);
     --white:#ffffff;
-    --text:#F8F8F8;
-
-    --shadow:0 25px 60px rgba(0,0,0,.35);
+    --text:#F4F4F4;
 
 }
 
-/* ==========================================
-   RESET
-========================================== */
+/*=========================================
+ RESET
+=========================================*/
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
 
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
     color:var(--white);
 
     background:
-    linear-gradient(180deg,
-    #4A174D 0%,
-    #9D3E6D 35%,
-    #F36D55 75%,
-    #FFB347 100%);
-
-    position:relative;
+    linear-gradient(
+    180deg,
+    #3F1455 0%,
+    #70316F 30%,
+    #D95B5B 70%,
+    #FFB44A 100%);
 
 }
 
-/* ==========================================
-   BACKGROUND
-========================================== */
+/*=========================================
+ CONTAINER
+=========================================*/
 
-.bg-overlay{
+.container{
 
-    position:absolute;
+    width:min(1180px,90%);
+    margin:auto;
+
+}
+
+/*=========================================
+ BACKGROUND
+=========================================*/
+
+.background{
+
+    position:fixed;
     inset:0;
-
-    background:
-    radial-gradient(circle at top,
-    rgba(255,255,255,.08),
-    transparent 60%);
-
-    pointer-events:none;
+    overflow:hidden;
+    z-index:-10;
 
 }
 
-.stars{
-
-    position:absolute;
-    inset:0;
-
-    background-image:
-    radial-gradient(#fff 1px,transparent 1px);
-
-    background-size:90px 90px;
-
-    opacity:.15;
-
-}
-
-/* ==========================================
-   SUN
-========================================== */
+/*=========================================
+ SUN
+=========================================*/
 
 .sun{
 
     position:absolute;
 
-    width:220px;
-    height:220px;
+    width:260px;
+    height:260px;
 
     border-radius:50%;
 
-    background:
-
-    radial-gradient(circle,
-    #FFD978,
-    #FFA64D);
-
-    bottom:140px;
     right:8%;
+    top:80px;
+
+    background:
+    radial-gradient(circle,
+    #FFE38A,
+    #FF9F45);
 
     box-shadow:
 
-    0 0 70px rgba(255,180,70,.8);
+    0 0 80px rgba(255,170,70,.7),
+    0 0 150px rgba(255,130,60,.35);
+
+    animation:floatSun 7s ease-in-out infinite;
 
 }
 
-/* ==========================================
-   MOUNTAINS
-========================================== */
+/*=========================================
+ CLOUDS
+=========================================*/
+
+.cloud{
+
+    position:absolute;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:100px;
+
+}
+
+.cloud::before,
+.cloud::after{
+
+    content:"";
+    position:absolute;
+
+    background:inherit;
+
+    border-radius:50%;
+
+}
+
+.cloud1{
+
+    width:180px;
+    height:55px;
+
+    top:110px;
+    left:-220px;
+
+    animation:cloudMove 28s linear infinite;
+
+}
+
+.cloud1::before{
+
+    width:70px;
+    height:70px;
+
+    left:20px;
+    top:-30px;
+
+}
+
+.cloud1::after{
+
+    width:80px;
+    height:80px;
+
+    right:18px;
+    top:-35px;
+
+}
+
+.cloud2{
+
+    width:220px;
+    height:60px;
+
+    top:220px;
+    left:-260px;
+
+    animation:cloudMove 42s linear infinite;
+
+}
+
+.cloud2::before{
+
+    width:75px;
+    height:75px;
+
+    left:25px;
+    top:-32px;
+
+}
+
+.cloud2::after{
+
+    width:95px;
+    height:95px;
+
+    right:25px;
+    top:-42px;
+
+}
+
+/*=========================================
+ MOUNTAINS
+=========================================*/
 
 .mountain{
 
     position:absolute;
     bottom:0;
-
     width:100%;
-    height:260px;
-
-    clip-path:polygon(
-    0% 100%,
-    12% 55%,
-    25% 78%,
-    40% 42%,
-    58% 85%,
-    75% 48%,
-    100% 100%
-    );
 
 }
 
 .mountain1{
 
-    background:#5D235A;
-    opacity:.9;
-    z-index:1;
+    height:280px;
+
+    background:#4B1F59;
+
+    clip-path:polygon(
+    0 100%,8% 65%,20% 90%,35% 45%,
+    52% 82%,68% 40%,82% 88%,100% 100%);
 
 }
 
@@ -152,237 +220,783 @@ body{
 
     height:220px;
 
-    background:#7B2E62;
+    background:#6B2963;
 
-    opacity:.8;
+    clip-path:polygon(
+    0 100%,12% 70%,25% 100%,43% 55%,
+    60% 92%,78% 45%,100% 100%);
 
-    z-index:2;
+    opacity:.85;
 
 }
 
 .mountain3{
 
-    height:180px;
+    height:170px;
 
-    background:#3D173E;
-
-    z-index:3;
+    background:#2B123B;
 
 }
 
-/* ==========================================
-   MAIN CONTAINER
-========================================== */
+/*=========================================
+ HEADER
+=========================================*/
 
-.container{
+header{
 
-    width:900px;
-    max-width:92%;
-
-    position:relative;
-    z-index:10;
-
-    background:var(--glass);
-
-    backdrop-filter:blur(25px);
-
-    border:1px solid var(--glass-border);
-
-    border-radius:28px;
-
-    padding:35px;
-
-    box-shadow:var(--shadow);
+    padding:25px 0;
 
 }
-/* ==========================================
-   LOGO
-========================================== */
+
+.nav{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
 
 .logo{
 
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:30px;
+    gap:10px;
+
+    font-size:1.7rem;
+    font-weight:700;
 
 }
 
 .logo i{
 
-    font-size:2rem;
     color:#FFD76A;
 
 }
 
-.logo h2{
-
-    font-size:1.4rem;
-    font-weight:700;
-
-}
-
-.logo span{
-
-    display:block;
-    font-size:.8rem;
-    opacity:.8;
-
-}
-
-/* ==========================================
-   TITLE
-========================================== */
-
-.title{
-
-    text-align:center;
-    margin-bottom:28px;
-
-}
-
-.title h1{
-
-    font-size:2.3rem;
-    font-weight:700;
-
-}
-
-.title p{
-
-    margin-top:10px;
-    color:rgba(255,255,255,.85);
-
-}
-
-/* ==========================================
-   GLASS CARD
-========================================== */
-
-.converter-card{
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.18);
-
-    border-radius:22px;
-
-    padding:28px;
-
-}
-
-/* ==========================================
-   INPUT ROW
-========================================== */
-
-.input-row{
-
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:18px;
-    margin-bottom:25px;
-
-}
-
-.input-box,
-.select-box{
+nav{
 
     display:flex;
-    flex-direction:column;
+    gap:35px;
 
 }
 
-.input-box label,
-.select-box label{
+nav a{
 
-    margin-bottom:10px;
-    font-size:.95rem;
+    color:white;
+    text-decoration:none;
     font-weight:500;
+    transition:.3s;
 
 }
 
-.input-box input,
-.select-box select{
+nav a:hover{
 
-    width:100%;
-    height:60px;
+    color:#FFD76A;
 
-    border:none;
-    outline:none;
+}
 
-    border-radius:14px;
+/*=========================================
+ HERO
+=========================================*/
 
-    padding:0 18px;
+.hero{
 
-    font-size:1.2rem;
+    min-height:90vh;
+
+    display:flex;
+    align-items:center;
+
+}
+
+.hero-grid{
+
+    display:grid;
+    grid-template-columns:1fr 520px;
+    gap:60px;
+    align-items:center;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:50px;
 
     background:rgba(255,255,255,.12);
 
-    color:#fff;
-
-}
-
-.select-box select option{
-
-    color:#000;
-
-}
-
-/* ==========================================
-   RESULT CARDS
-========================================== */
-
-.results{
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
     margin-bottom:25px;
 
 }
 
-.result-card{
+.hero h1{
 
-    background:rgba(255,255,255,.08);
+    font-size:4rem;
+    line-height:1.15;
+    margin-bottom:20px;
 
-    border:1px solid rgba(255,255,255,.15);
+}
 
-    border-radius:18px;
+.hero h1 span{
+
+    color:#FFD76A;
+
+}
+
+.hero p{
+
+    font-size:1.05rem;
+    line-height:1.9;
+    color:#F5F5F5;
+
+}
+/*=========================================
+ CONVERTER CARD
+=========================================*/
+
+.converter-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:35px;
+
+    padding:40px;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.35);
+
+    overflow:hidden;
+
+}
+
+.converter-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:35px;
+
+    background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.25),
+    transparent,
+    rgba(255,255,255,.10));
+
+    z-index:-1;
+
+}
+
+/*=========================================
+ TITLE
+=========================================*/
+
+.converter-card h2{
 
     text-align:center;
 
-    padding:22px;
+    font-size:2rem;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================
+ INPUT GROUP
+=========================================*/
+
+.input-group{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+.input-group input,
+.input-group select{
+
+    height:65px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:18px;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:1rem;
+
+    border:1px solid rgba(255,255,255,.15);
 
     transition:.35s;
 
 }
 
+.input-group input::placeholder{
+
+    color:#f3f3f3;
+
+}
+
+.input-group input:focus,
+.input-group select:focus{
+
+    border-color:#FFD76A;
+
+    box-shadow:
+    0 0 18px rgba(255,215,106,.4);
+
+}
+
+/*=========================================
+ BUTTONS
+=========================================*/
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+.buttons button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:15px 34px;
+
+    border-radius:16px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+#convertBtn{
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #FF8A3D,
+    #FF4F81);
+
+    box-shadow:
+    0 12px 30px rgba(255,90,80,.35);
+
+}
+
+#convertBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 18px 40px rgba(255,90,80,.55);
+
+}
+
+#resetBtn{
+
+    color:white;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.18);
+
+}
+
+#resetBtn:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.18);
+
+}
+
+/*=========================================
+ ERROR
+=========================================*/
+
+.error{
+
+    text-align:center;
+
+    color:#FFE36C;
+
+    min-height:25px;
+
+    margin-bottom:25px;
+
+}
+
+/*=========================================
+ RESULT CARDS
+=========================================*/
+
+.results{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+.result-card{
+
+    padding:28px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.10);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    transition:.4s;
+
+}
+
 .result-card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 
-    background:rgba(255,255,255,.14);
+    background:rgba(255,255,255,.16);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
+
+}
+
+.result-card i{
+
+    font-size:2rem;
+
+    color:#FFD76A;
+
+    margin-bottom:12px;
 
 }
 
 .result-card h3{
 
+    margin-bottom:12px;
+
     font-size:1rem;
+
+}
+
+.result-card h1{
+
+    font-size:2rem;
+
+    color:white;
+
+}
+/*=========================================
+ FEATURES
+=========================================*/
+
+.features{
+
+    padding:100px 0;
+
+}
+
+.section-title{
+
+    text-align:center;
+    font-size:2.8rem;
+    margin-bottom:60px;
+
+}
+
+.feature-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.feature-box{
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:25px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.45s;
+
+}
+
+.feature-box:hover{
+
+    transform:translateY(-12px);
+
+    background:rgba(255,255,255,.15);
+
+    box-shadow:
+
+    0 20px 45px rgba(255,160,90,.25);
+
+}
+
+.feature-box i{
+
+    font-size:2.8rem;
+
+    color:#FFD76A;
+
+    margin-bottom:18px;
+
+}
+
+.feature-box h3{
+
     margin-bottom:15px;
 
 }
 
-.result-card h2{
+.feature-box p{
 
-    font-size:2rem;
-    margin-bottom:8px;
-    color:#FFD86F;
+    color:#ececec;
+    line-height:1.8;
 
 }
 
-.result-card span{
+/*=========================================
+ ABOUT
+=========================================*/
 
-    font-size:.95rem;
-    opacity:.85;
+.about{
+
+    padding:100px 0;
+
+}
+
+.about-content{
+
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+.about-content h2{
+
+    font-size:2.5rem;
+    margin-bottom:20px;
+
+}
+
+.about-content p{
+
+    line-height:2;
+    color:#eee;
+
+}
+
+.about-icon{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.about-icon i{
+
+    font-size:9rem;
+
+    color:#FFD76A;
+
+    animation:float 5s ease infinite;
+
+}
+
+/*=========================================
+ FOOTER
+=========================================*/
+
+footer{
+
+    padding:60px 0;
+
+    margin-top:60px;
+
+    background:rgba(0,0,0,.15);
+
+    backdrop-filter:blur(20px);
+
+}
+
+.footer{
+
+    text-align:center;
+
+}
+
+.footer h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+}
+
+.footer p{
+
+    color:#eee;
+
+}
+
+.footer-icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:30px 0;
+
+}
+
+.footer-icons a{
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.10);
+
+    transition:.4s;
+
+}
+
+.footer-icons a:hover{
+
+    transform:translateY(-8px) scale(1.1);
+
+    background:linear-gradient(
+    135deg,
+    #FF8A3D,
+    #FF4F81);
+
+}
+
+.copyright{
+
+    margin-top:20px;
+
+    font-size:.9rem;
+
+}
+
+/*=========================================
+ ANIMATIONS
+=========================================*/
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes floatSun{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes cloudMove{
+
+    from{
+
+        transform:translateX(-350px);
+
+    }
+
+    to{
+
+        transform:translateX(calc(100vw + 450px));
+
+    }
+
+}
+
+/*=========================================
+ RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+.hero-grid,
+.about-content{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.feature-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.results{
+
+grid-template-columns:1fr;
+
+}
+
+.input-group{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.stats{
+
+justify-content:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:2.7rem;
+
+}
+
+.section-title{
+
+font-size:2rem;
+
+}
+
+.feature-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+.buttons button{
+
+width:100%;
+
+}
+
+.converter-card{
+
+padding:25px;
+
+}
 
 }
