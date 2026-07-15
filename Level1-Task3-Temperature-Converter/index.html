@@ -11,8 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 
     <!-- Google Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -20,196 +22,93 @@
 
 <body>
 
-<!--======================
-        HEADER
-=======================-->
+    <!-- ===============================
+            Animated Background
+    ================================ -->
 
-<header class="header">
+    <div class="bg-overlay"></div>
 
-    <nav class="navbar container">
+    <div class="stars"></div>
 
-        <a href="#" class="logo">
-            <i class="ri-temp-hot-line"></i>
-            Tempora
-        </a>
+    <div class="sun"></div>
 
-        <ul class="nav-links">
+    <div class="mountain mountain1"></div>
+    <div class="mountain mountain2"></div>
+    <div class="mountain mountain3"></div>
 
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#converter">Converter</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-
-        </ul>
-
-        <button class="theme-btn">
-            <i class="ri-moon-clear-line"></i>
-        </button>
-
-    </nav>
-
-</header>
-
-<!--======================
-        HERO
-=======================-->
-
-<section class="hero" id="home">
-
-<div class="container hero-container">
-
-<div class="hero-content">
-
-<span class="badge">
-<i class="ri-flashlight-line"></i>
-Fast • Accurate • Modern
-</span>
-
-<h1>
-
-Convert Temperature
-<span>Instantly</span>
-
-</h1>
-
-<p>
-
-Professional Temperature Converter supporting
-Celsius, Fahrenheit and Kelvin with real-time
-validation, premium UI and lightning-fast results.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#converter" class="btn primary">
-
-Start Converting
-<i class="ri-arrow-right-line"></i>
-
-</a>
-
-<a href="#features" class="btn secondary">
-
-Explore Features
-
-</a>
-
-</div>
-
-<div class="hero-stats">
-
-<div>
-
-<h3>3+</h3>
-<p>Units</p>
-
-</div>
-
-<div>
-
-<h3>100%</h3>
-<p>Accurate</p>
-
-</div>
-
-<div>
-
-<h3>Instant</h3>
-<p>Results</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<div class="glass-card">
-
-<div class="thermometer">
-
-<i class="ri-temp-hot-line"></i>
-
-</div>
-
-<div class="floating-circle circle1"></div>
-
-<div class="floating-circle circle2"></div>
-
-<div class="floating-circle circle3"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!--====================================
-        CONVERTER
-=====================================-->
-
-<section class="converter section" id="converter">
+    <!-- ===============================
+            Main Card
+    ================================ -->
 
     <div class="container">
 
-        <div class="section-title">
+        <!-- Logo -->
 
-            <span>Temperature Converter</span>
+        <div class="logo">
 
-            <h2>Convert Between All Units</h2>
+            <i class="ri-temp-hot-line"></i>
 
-            <p>
-                Convert temperatures instantly with
-                smart validation and accurate calculations.
-            </p>
+            <div>
+
+                <h2>Tempora</h2>
+
+                <p>Smart Temperature Converter</p>
+
+            </div>
 
         </div>
 
+        <!-- Heading -->
+
+        <h1>Temperature Converter</h1>
+
+        <p class="subtitle">
+
+            Convert Celsius, Fahrenheit & Kelvin Instantly
+
+        </p>
+
+        <!-- Converter Card -->
+
         <div class="converter-card">
 
-            <div class="converter-grid">
+            <!-- Input -->
 
-                <!-- Input -->
+            <div class="input-area">
 
                 <div class="input-box">
 
                     <label>
-                        <i class="ri-temp-hot-line"></i>
+
+                        <i class="ri-temp-cold-line"></i>
+
                         Enter Temperature
+
                     </label>
 
                     <input
                         type="number"
                         id="temperature"
-                        placeholder="Enter value">
+                        placeholder="25">
 
                 </div>
 
-                <!-- Select Unit -->
+                <!-- Unit -->
 
-                <div class="input-box">
-
-                    <label>
-                        <i class="ri-arrow-left-right-line"></i>
-                        Select Unit
-                    </label>
+                <div class="unit-box">
 
                     <select id="unit">
 
                         <option value="celsius">
-                            Celsius (°C)
+                            °C
                         </option>
 
                         <option value="fahrenheit">
-                            Fahrenheit (°F)
+                            °F
                         </option>
 
                         <option value="kelvin">
-                            Kelvin (K)
+                            K
                         </option>
 
                     </select>
@@ -218,11 +117,58 @@ Explore Features
 
             </div>
 
-            <!-- Buttons -->
+            <!-- Results -->
 
-            <div class="button-group">
+            <div class="results">
 
-                <button id="convertBtn" class="btn primary">
+                <div class="card">
+
+                    <h3>Celsius</h3>
+
+                    <span id="celsiusValue">
+
+                        --
+
+                    </span>
+
+                    <small>°C</small>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Fahrenheit</h3>
+
+                    <span id="fahrenheitValue">
+
+                        --
+
+                    </span>
+
+                    <small>°F</small>
+
+                </div>
+
+                <div class="card glow">
+
+                    <h3>Kelvin</h3>
+
+                    <span id="kelvinValue">
+
+                        --
+
+                    </span>
+
+                    <small>K</small>
+
+                </div>
+
+            </div>
+                        <!-- Buttons -->
+
+            <div class="buttons">
+
+                <button id="convertBtn" class="convert-btn">
 
                     <i class="ri-refresh-line"></i>
 
@@ -230,7 +176,7 @@ Explore Features
 
                 </button>
 
-                <button id="resetBtn" class="btn secondary">
+                <button id="resetBtn" class="reset-btn">
 
                     <i class="ri-restart-line"></i>
 
@@ -240,206 +186,82 @@ Explore Features
 
             </div>
 
-            <!-- Error Message -->
+            <!-- Status Message -->
 
-            <p id="error" class="error-message"></p>
+            <div id="message" class="message">
 
-            <!-- Results -->
-
-            <div class="results-grid">
-
-                <div class="result-card">
-
-                    <i class="ri-temp-cold-line"></i>
-
-                    <h3>Celsius</h3>
-
-                    <h2 id="celsiusResult">
-
-                        --
-
-                    </h2>
-
-                </div>
-
-                <div class="result-card">
-
-                    <i class="ri-fire-line"></i>
-
-                    <h3>Fahrenheit</h3>
-
-                    <h2 id="fahrenheitResult">
-
-                        --
-
-                    </h2>
-
-                </div>
-
-                <div class="result-card">
-
-                    <i class="ri-cloud-line"></i>
-
-                    <h3>Kelvin</h3>
-
-                    <h2 id="kelvinResult">
-
-                        --
-
-                    </h2>
-
-                </div>
+                Enter a value and click Convert
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Features -->
 
-</section>
-<!--====================================
-        FEATURES
-=====================================-->
+        <div class="features">
 
-<section class="features section" id="features">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <span>Why Choose Tempora?</span>
-
-            <h2>Premium Features</h2>
-
-        </div>
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-
-                <i class="ri-flashlight-line"></i>
-
-                <h3>Instant Conversion</h3>
-
-                <p>
-                    Convert temperatures instantly with one click.
-                </p>
-
-            </div>
-
-            <div class="feature-card">
+            <div class="feature">
 
                 <i class="ri-shield-check-line"></i>
 
-                <h3>Input Validation</h3>
+                <h4>Accurate</h4>
 
-                <p>
-                    Prevents invalid values and checks absolute zero.
-                </p>
+                <p>100% Precision</p>
 
             </div>
 
-            <div class="feature-card">
+            <div class="feature">
 
-                <i class="ri-focus-3-line"></i>
+                <i class="ri-flashlight-line"></i>
 
-                <h3>High Accuracy</h3>
+                <h4>Instant</h4>
 
-                <p>
-                    Accurate conversion formulas for every unit.
-                </p>
+                <p>Real-time Conversion</p>
 
             </div>
 
-            <div class="feature-card">
+            <div class="feature">
 
-                <i class="ri-smartphone-line"></i>
+                <i class="ri-cpu-line"></i>
 
-                <h3>Responsive Design</h3>
+                <h4>Smart</h4>
 
-                <p>
-                    Works perfectly on desktop, tablet and mobile.
-                </p>
+                <p>Error Free Results</p>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="ri-sparkling-2-line"></i>
+
+                <h4>Premium UI</h4>
+
+                <p>Modern Glass Design</p>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Footer -->
 
-</section>
-
-<!--====================================
-        ABOUT
-=====================================-->
-
-<section class="about section" id="about">
-
-    <div class="container about-container">
-
-        <div class="about-content">
-
-            <span>About Project</span>
-
-            <h2>Professional Temperature Converter</h2>
+        <footer>
 
             <p>
 
-                Tempora is a modern JavaScript based temperature
-                conversion application developed using HTML5,
-                CSS3 and Vanilla JavaScript.
+                Designed & Developed by
+
+                <span>Sravani Dosapalli</span>
 
             </p>
 
-            <p>
-
-                It supports Celsius, Fahrenheit and Kelvin with
-                real-time validation, clean UI, accurate
-                calculations and responsive design.
-
-            </p>
-
-        </div>
+        </footer>
 
     </div>
 
-</section>
+    <!-- JavaScript -->
 
-<!--====================================
-        FOOTER
-=====================================-->
-
-<footer class="footer">
-
-    <div class="container">
-
-        <div class="footer-logo">
-
-            <i class="ri-temp-hot-line"></i>
-
-            <span>Tempora</span>
-
-        </div>
-
-        <div class="footer-icons">
-
-            <a href="#"><i class="ri-github-fill"></i></a>
-
-            <a href="#"><i class="ri-linkedin-fill"></i></a>
-
-            <a href="#"><i class="ri-instagram-line"></i></a>
-
-        </div>
-
-    </div>
-
-</footer>
-
-<!--=========================
-        SCRIPT
-==========================-->
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
