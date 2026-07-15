@@ -241,3 +241,60 @@ requestAnimationFrame(update);
 requestAnimationFrame(update);
 
 }
+/*=========================================
+RIPPLE EFFECT
+=========================================*/
+
+document.querySelectorAll("button").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=document.createElement("span");
+
+const rect=this.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.classList.add("ripple");
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},700);
+
+});
+
+});
+
+/*=========================================
+MOUSE SPOTLIGHT
+=========================================*/
+
+const hero=document.querySelector(".hero");
+
+hero.addEventListener("mousemove",(e)=>{
+
+const x=e.clientX;
+
+const y=e.clientY;
+
+hero.style.backgroundPosition="center";
+
+hero.style.setProperty("--x",x+"px");
+
+hero.style.setProperty("--y",y+"px");
+
+});
+
+/*=========================================
