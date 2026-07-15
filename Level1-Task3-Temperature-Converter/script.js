@@ -1,8 +1,9 @@
-//==============================
-// ELEMENTS
-//==============================
+/*=========================================
+ Tempora AI
+ Premium Temperature Converter
+=========================================*/
 
-const temperature =document.getElementById("temperature");
+const temperature = document.getElementById("temperature");
 const unit = document.getElementById("unit");
 
 const convertBtn = document.getElementById("convertBtn");
@@ -14,19 +15,31 @@ const kelvinResult = document.getElementById("kelvinResult");
 
 const error = document.getElementById("error");
 
-//==============================
-// CONVERT
-//==============================
+/*=========================================
+ Convert
+=========================================*/
 
 convertBtn.addEventListener("click", convertTemperature);
 
-function convertTemperature() {
+temperature.addEventListener("keypress", function(e){
 
-    error.textContent = "";
+    if(e.key === "Enter"){
 
-    let value = parseFloat(temperature.value);
+        convertTemperature();
 
-    if (isNaN(value)) {
+    }
+
+});
+
+/*=========================================
+ Function
+=========================================*/
+
+function convertTemperature(){
+
+    let temp = parseFloat(temperature.value);
+
+    if(isNaN(temp)){
 
         error.textContent = "Please enter a valid temperature.";
 
@@ -36,140 +49,174 @@ function convertTemperature() {
 
     }
 
-    let celsius, fahrenheit, kelvin;
+    let c, f, k;
 
-    switch (unit.value) {
+    switch(unit.value){
 
         case "celsius":
 
-            if (value < -273.15) {
-
-                error.textContent =
-                    "Temperature cannot be below Absolute Zero.";
-
-                clearResults();
-
-                return;
-
-            }
-
-            celsius = value;
-            fahrenheit = (value * 9 / 5) + 32;
-            kelvin = value + 273.15;
+            c = temp;
+            f = (temp * 9/5) + 32;
+            k = temp + 273.15;
 
             break;
 
         case "fahrenheit":
 
-            if (value < -459.67) {
-
-                error.textContent =
-                    "Temperature cannot be below Absolute Zero.";
-
-                clearResults();
-
-                return;
-
-            }
-
-            celsius = (value - 32) * 5 / 9;
-            fahrenheit = value;
-            kelvin = celsius + 273.15;
+            c = (temp - 32) * 5/9;
+            f = temp;
+            k = c + 273.15;
 
             break;
 
         case "kelvin":
 
-            if (value < 0) {
-
-                error.textContent =
-                    "Temperature cannot be below Absolute Zero.";
-
-                clearResults();
-
-                return;
-
-            }
-
-            kelvin = value;
-            celsius = value - 273.15;
-            fahrenheit = (celsius * 9 / 5) + 32;
+            c = temp - 273.15;
+            f = (c * 9/5) + 32;
+            k = temp;
 
             break;
 
     }
 
-    animateValue(celsiusResult, celsius.toFixed(2) + " °C");
-    animateValue(fahrenheitResult, fahrenheit.toFixed(2) + " °F");
-    animateValue(kelvinResult, kelvin.toFixed(2) + " K");
+    if(k < 0){
+
+        error.textContent = "Temperature cannot be below Absolute Zero.";
+
+        clearResults();
+
+        return;
+
+    }
+
+    error.textContent = "";
+
+    animateNumber(celsiusResult, c);
+
+    animateNumber(fahrenheitResult, f);
+
+    animateNumber(kelvinResult, k);
 
 }
 
-//==============================
-// RESET
-//==============================
+/*=========================================
+ Number Animation
+=========================================*/
 
-resetBtn.addEventListener("click", () => {
+function animateNumber(element,value){
 
-    temperature.value = "";
-    unit.value = "celsius";
+    let start = 0;
 
-    error.textContent = "";
+    let end = Number(value.toFixed(2));
+
+    let duration = 700;
+
+    let startTime = null;
+
+    function update(currentTime){
+
+        if(!startTime){
+
+            startTime = currentTime;
+
+        }
+
+        let progress = Math.min((currentTime-startTime)/duration,1);
+
+        let current = start + (end-start)*progress;
+
+        element.textContent = current.toFixed(2);
+
+        if(progress < 1){
+
+            requestAnimationFrame(update);
+
+        }
+
+    }
+
+    requestAnimationFrame(update);
+
+}
+
+/*=========================================
+ Reset
+=========================================*/
+
+resetBtn.addEventListener("click",()=>{
+
+    temperature.value="";
+
+    unit.value="celsius";
+
+    error.textContent="";
 
     clearResults();
 
 });
 
-//==============================
-// CLEAR
-//==============================
+/*=========================================
+ Clear Results
+=========================================*/
 
-function clearResults() {
+function clearResults(){
 
-    celsiusResult.textContent = "--";
-    fahrenheitResult.textContent = "--";
-    kelvinResult.textContent = "--";
+    celsiusResult.textContent="--";
 
-}
+    fahrenheitResult.textContent="--";
 
-//==============================
-// ANIMATION
-//==============================
-
-function animateValue(element, value) {
-
-    element.style.opacity = "0";
-
-    setTimeout(() => {
-
-        element.textContent = value;
-
-        element.style.opacity = "1";
-
-    }, 250);
+    kelvinResult.textContent="--";
 
 }
 
-//==============================
-// ENTER KEY
-//==============================
+/*=========================================
+ Input Glow
+=========================================*/
 
-temperature.addEventListener("keypress", function (e) {
+temperature.addEventListener("focus",()=>{
 
-    if (e.key === "Enter") {
-
-        convertTemperature();
-
-    }
+    temperature.style.transform="scale(1.02)";
 
 });
 
-//==============================
-// INPUT EFFECT
-//==============================
+temperature.addEventListener("blur",()=>{
 
-temperature.addEventListener("input", () => {
+    temperature.style.transform="scale(1)";
 
-    error.textContent = "";
+});
+
+/*=========================================
+ Button Ripple Effect
+=========================================*/
+
+document.querySelectorAll("button").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=document.createElement("span");
+
+const rect=this.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.className="ripple";
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
 
 });
