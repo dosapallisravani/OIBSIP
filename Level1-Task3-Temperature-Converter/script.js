@@ -1,32 +1,156 @@
-/*=========================================
-TEMPORA
-Premium JavaScript
-=========================================*/
+// ==========================
+// ELEMENTS
+// ==========================
 
-const temperature = document.getElementById("temperature");
+const tempInput = document.getElementById("temperature");
 const unit = document.getElementById("unit");
 
 const convertBtn = document.getElementById("convertBtn");
 const resetBtn = document.getElementById("resetBtn");
 
-const celsiusResult = document.getElementById("celsiusResult");
-const fahrenheitResult = document.getElementById("fahrenheitResult");
-const kelvinResult = document.getElementById("kelvinResult");
+const celsius = document.getElementById("celsiusResult");
+const fahrenheit = document.getElementById("fahrenheitResult");
+const kelvin = document.getElementById("kelvinResult");
 
 const error = document.getElementById("error");
 
+// ==========================
+// CONVERT BUTTON
+// ==========================
+
+convertBtn.addEventListener("click", convertTemperature);
+
+// ==========================
+// RESET BUTTON
+// ==========================
+
+resetBtn.addEventListener("click", resetValues);
+
+// ==========================
+// ENTER KEY SUPPORT
+// ==========================
+
+tempInput.addEventListener("keypress", function(e){
+
+    if(e.key==="Enter"){
+
+        convertTemperature();
+
+    }
+
+});
+
+// ==========================
+// CONVERSION
+// ==========================
+
+function convertTemperature(){
+
+    let value = parseFloat(tempInput.value);
+
+    if(isNaN(value)){
+
+        error.textContent="Please enter a valid temperature.";
+
+        clearResults();
+
+        return;
+
+    }
+
+    error.textContent="";
+
+    let c,f,k;
+
+    switch(unit.value){
+
+        case "celsius":
+
+            c=value;
+            f=(value*9/5)+32;
+            k=value+273.15;
+
+        break;
+
+        case "fahrenheit":
+
+            f=value;
+            c=(value-32)*5/9;
+            k=c+273.15;
+
+        break;
+
+        case "kelvin":
+
+            k=value;
+            c=value-273.15;
+            f=(c*9/5)+32;
+
+        break;
+
+    }
+
+    if(k<0){
+
+        error.textContent="Temperature cannot be below Absolute Zero.";
+
+        clearResults();
+
+        return;
+
+    }
+
+    celsius.textContent=c.toFixed(2);
+
+    fahrenheit.textContent=f.toFixed(2);
+
+    kelvin.textContent=k.toFixed(2);
+
+}
+
+// ==========================
+// RESET
+// ==========================
+
+function resetValues(){
+
+    tempInput.value="";
+
+    unit.value="celsius";
+
+    error.textContent="";
+
+    clearResults();
+
+}
+
+// ==========================
+// CLEAR RESULTS
+// ==========================
+
+function clearResults(){
+
+    celsius.textContent="--";
+
+    fahrenheit.textContent="--";
+
+    kelvin.textContent="--";
+
+}
 /*=========================================
-PAGE LOAD ANIMATION
+CARD FADE-IN
 =========================================*/
 
 window.addEventListener("load",()=>{
 
-document.querySelector(".converter-panel").animate(
+const card=document.querySelector(".converter-card");
+
+card.animate(
 
 [
 {
 opacity:0,
-transform:"translateY(80px)"
+transform:"translateY(60px)"
 },
 
 {
@@ -37,9 +161,9 @@ transform:"translateY(0)"
 ],
 
 {
-duration:1200,
+duration:1000,
 fill:"forwards",
-easing:"ease"
+easing:"ease-out"
 }
 
 );
@@ -47,202 +171,7 @@ easing:"ease"
 });
 
 /*=========================================
-ENTER KEY
-=========================================*/
-
-temperature.addEventListener("keypress",function(e){
-
-if(e.key==="Enter"){
-
-convertTemperature();
-
-}
-
-});
-
-/*=========================================
-BUTTON EVENTS
-=========================================*/
-
-convertBtn.addEventListener(
-
-"click",
-
-convertTemperature
-
-);
-
-resetBtn.addEventListener(
-
-"click",
-
-resetValues
-
-);
-
-/*=========================================
-CONVERT
-=========================================*/
-
-function convertTemperature(){
-
-let value=parseFloat(temperature.value);
-
-if(isNaN(value)){
-
-showError("Please enter temperature.");
-
-clearResults();
-
-return;
-
-}
-
-let c,f,k;
-
-switch(unit.value){
-
-case "celsius":
-
-c=value;
-
-f=(value*9/5)+32;
-
-k=value+273.15;
-
-break;
-
-case "fahrenheit":
-
-c=(value-32)*5/9;
-
-f=value;
-
-k=c+273.15;
-
-break;
-
-case "kelvin":
-
-c=value-273.15;
-
-f=(c*9/5)+32;
-
-k=value;
-
-break;
-
-}
-
-if(k<0){
-
-showError("Temperature below Absolute Zero.");
-
-clearResults();
-
-return;
-
-}
-
-error.textContent="";
-
-animateValue(celsiusResult,c);
-
-animateValue(fahrenheitResult,f);
-
-animateValue(kelvinResult,k);
-
-}
-
-/*=========================================
-RESET
-=========================================*/
-
-function resetValues(){
-
-temperature.value="";
-
-unit.value="celsius";
-
-error.textContent="";
-
-clearResults();
-
-}
-
-/*=========================================
-CLEAR RESULTS
-=========================================*/
-
-function clearResults(){
-
-celsiusResult.textContent="--";
-
-fahrenheitResult.textContent="--";
-
-kelvinResult.textContent="--";
-
-}
-
-/*=========================================
-ERROR
-=========================================*/
-
-function showError(msg){
-
-error.textContent=msg;
-
-}
-
-/*=========================================
-NUMBER ANIMATION
-=========================================*/
-
-function animateValue(el,value){
-
-let start=0;
-
-let end=parseFloat(value.toFixed(2));
-
-let duration=700;
-
-let startTime=null;
-
-function update(current){
-
-if(!startTime){
-
-startTime=current;
-
-}
-
-let progress=Math.min(
-
-(current-startTime)/duration,
-
-1
-
-);
-
-let currentValue=start+
-
-(end-start)*progress;
-
-el.textContent=currentValue.toFixed(2);
-
-if(progress<1){
-
-requestAnimationFrame(update);
-
-}
-
-}
-
-requestAnimationFrame(update);
-
-}
-/*=========================================
-RIPPLE EFFECT
+BUTTON RIPPLE EFFECT
 =========================================*/
 
 document.querySelectorAll("button").forEach(button=>{
@@ -259,11 +188,23 @@ ripple.style.width=size+"px";
 
 ripple.style.height=size+"px";
 
+ripple.style.position="absolute";
+
+ripple.style.borderRadius="50%";
+
+ripple.style.background="rgba(255,255,255,.4)";
+
 ripple.style.left=e.clientX-rect.left-size/2+"px";
 
 ripple.style.top=e.clientY-rect.top-size/2+"px";
 
-ripple.classList.add("ripple");
+ripple.style.pointerEvents="none";
+
+ripple.style.animation="ripple .7s linear";
+
+this.style.position="relative";
+
+this.style.overflow="hidden";
 
 this.appendChild(ripple);
 
@@ -278,23 +219,89 @@ ripple.remove();
 });
 
 /*=========================================
-MOUSE SPOTLIGHT
+HOVER GLOW
 =========================================*/
 
-const hero=document.querySelector(".hero");
+document.querySelectorAll(".result-box").forEach(box=>{
 
-hero.addEventListener("mousemove",(e)=>{
+box.addEventListener("mouseenter",()=>{
 
-const x=e.clientX;
+box.style.transform="translateY(-8px) scale(1.03)";
 
-const y=e.clientY;
+});
 
-hero.style.backgroundPosition="center";
+box.addEventListener("mouseleave",()=>{
 
-hero.style.setProperty("--x",x+"px");
+box.style.transform="translateY(0) scale(1)";
 
-hero.style.setProperty("--y",y+"px");
+});
 
 });
 
 /*=========================================
+SCROLL REVEAL
+=========================================*/
+
+const revealItems=document.querySelectorAll(
+
+".feature-card,.about,.converter-card"
+
+);
+
+function reveal(){
+
+const trigger=window.innerHeight*0.85;
+
+revealItems.forEach(item=>{
+
+const top=item.getBoundingClientRect().top;
+
+if(top<trigger){
+
+item.style.opacity="1";
+
+item.style.transform="translateY(0)";
+
+}
+
+});
+
+}
+
+revealItems.forEach(item=>{
+
+item.style.opacity="0";
+
+item.style.transform="translateY(40px)";
+
+item.style.transition=".8s ease";
+
+});
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+/*=========================================
+MOUSE GLOW
+=========================================*/
+
+document.addEventListener("mousemove",(e)=>{
+
+document.documentElement.style.setProperty(
+
+"--mouseX",
+
+e.clientX+"px"
+
+);
+
+document.documentElement.style.setProperty(
+
+"--mouseY",
+
+e.clientY+"px"
+
+);
+
+});
