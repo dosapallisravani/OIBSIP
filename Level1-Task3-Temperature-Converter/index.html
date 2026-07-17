@@ -3,563 +3,360 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tempora | Premium Temperature Converter</title>
+    <title>Tempora | Premium Temperature Converter</title>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!--==========================
-BACKGROUND OVERLAY
-===========================-->
-
-<div class="overlay"></div>
-
-<!--==========================
-HEADER
-===========================-->
+<div class="bg-overlay"></div>
 
 <header>
 
-<div class="container navbar">
+    <div class="container nav">
 
-<a href="#" class="logo">
+        <a href="#" class="logo">
 
-<i class="ri-temp-hot-line"></i>
+            <i class="ri-temp-hot-fill"></i>
 
-<div>
+            <span>Tempora</span>
 
-<h2>Tempora</h2>
+        </a>
 
-<span>Luxury Temperature Converter</span>
+        <nav>
 
-</div>
+            <a href="#home">Home</a>
 
-</a>
+            <a href="#converter">Converter</a>
 
-<nav>
+            <a href="#features">Features</a>
 
-<ul>
+            <a href="#about">About</a>
 
-<li><a href="#home">Home</a></li>
+        </nav>
 
-<li><a href="#features">Features</a></li>
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-</nav>
-
-<div class="nav-btn">
-
-<button>
-
-<i class="ri-moon-clear-line"></i>
-
-</button>
-
-</div>
-
-</div>
+    </div>
 
 </header>
 
-<!--==========================
-HOME
-===========================-->
+<section class="hero" id="home">
 
-<section
-id="home"
-class="hero">
+    <div class="container hero-content">
 
-<div class="container hero-grid">
+        <div class="hero-text">
 
-<!--==========================
-LEFT CONTENT
-===========================-->
+            <span class="tag">
 
-<div class="hero-left">
+                Elegant • Accurate • Instant
 
-<div class="hero-badge">
+            </span>
 
-<i class="ri-sparkling-2-fill"></i>
+            <h1>
 
-Premium Nature Inspired UI
+                Temperature
 
-</div>
+                <br>
 
-<h1>
+                Converter
 
-Convert Temperature
+            </h1>
 
-<span>Beautifully.</span>
+            <p>
 
-</h1>
+                Experience beautiful temperature conversion
+                with a luxurious glassmorphism interface
+                inspired by peaceful mountains, forests,
+                rain and golden sunsets.
 
-<p>
+            </p>
 
-Experience temperature conversion with a luxurious
-glassmorphism interface inspired by peaceful mountain
-lakes, golden sunsets, and elegant nature.
-Fast, accurate, responsive and beautifully designed.
+        </div>
+              <!--==============================
+        GLASS CONVERTER CARD
+        ==============================-->
 
-</p>
+        <div class="converter-card" id="converter">
 
-<div class="hero-buttons">
+            <div class="card-top">
 
-<a href="#converter"
-class="primary-btn">
+                <div>
 
-Start Converting
+                    <h2>Temperature Converter</h2>
 
-</a>
+                    <p>Fast • Accurate • Beautiful</p>
 
-<a href="#features"
-class="secondary-btn">
+                </div>
 
-Explore Features
+                <div class="icon-box">
 
-</a>
+                    <i class="ri-temp-hot-line"></i>
 
-</div>
+                </div>
 
-<div class="hero-stats">
+            </div>
 
-<div>
+            <div class="input-group">
 
-<h2>3</h2>
+                <label>Temperature</label>
 
-<p>Units Supported</p>
+                <input
+                    type="number"
+                    id="temperature"
+                    placeholder="Enter value">
 
-</div>
+            </div>
 
-<div>
+            <div class="input-group">
 
-<h2>100%</h2>
+                <label>Select Unit</label>
 
-<p>Accurate Results</p>
+                <select id="unit">
 
-</div>
+                    <option value="celsius">
+                        Celsius (°C)
+                    </option>
 
-<div>
+                    <option value="fahrenheit">
+                        Fahrenheit (°F)
+                    </option>
 
-<h2>0s</h2>
+                    <option value="kelvin">
+                        Kelvin (K)
+                    </option>
 
-<p>Instant Conversion</p>
+                </select>
 
-</div>
+            </div>
 
-</div>
+            <button id="convertBtn" class="convert-btn">
 
-</div>
-  <!--==========================
-RIGHT SIDE
-===========================-->
+                <i class="ri-refresh-line"></i>
 
-<div class="hero-right">
+                Convert Temperature
 
-<div class="converter-panel" id="converter">
+            </button>
 
-<div class="panel-header">
+            <button id="resetBtn" class="reset-btn">
 
-<div>
+                <i class="ri-restart-line"></i>
 
-<h2>Temperature Converter</h2>
+                Reset
 
-<p>Convert Celsius, Fahrenheit & Kelvin</p>
+            </button>
 
-</div>
+            <p id="error" class="error"></p>
 
-<div class="panel-icon">
+            <!--==============================
+            RESULTS
+            ==============================-->
 
-<i class="ri-temp-hot-fill"></i>
+            <div class="results">
 
-</div>
+                <div class="result-box">
 
-</div>
+                    <span>Celsius</span>
 
-<!--==========================
-INPUT
-===========================-->
+                    <h3>
 
-<div class="input-area">
+                        <span id="celsiusResult">--</span>°C
 
-<input
-type="number"
-id="temperature"
-placeholder="Enter Temperature">
+                    </h3>
 
-<select id="unit">
+                </div>
 
-<option value="celsius">°C Celsius</option>
+                <div class="result-box">
 
-<option value="fahrenheit">°F Fahrenheit</option>
+                    <span>Fahrenheit</span>
 
-<option value="kelvin">K Kelvin</option>
+                    <h3>
 
-</select>
+                        <span id="fahrenheitResult">--</span>°F
 
-</div>
+                    </h3>
 
-<div class="button-group">
+                </div>
 
-<button id="convertBtn">
+                <div class="result-box">
 
-<i class="ri-refresh-line"></i>
+                    <span>Kelvin</span>
 
-Convert
+                    <h3>
 
-</button>
+                        <span id="kelvinResult">--</span>K
 
-<button id="resetBtn">
+                    </h3>
 
-<i class="ri-restart-line"></i>
+                </div>
 
-Reset
+            </div>
 
-</button>
+        </div>
 
-</div>
-
-<p id="error" class="error"></p>
-
-<!--==========================
-RESULTS
-===========================-->
-
-<div class="result-grid">
-
-<div class="result-card">
-
-<div class="result-top">
-
-<i class="ri-temp-cold-line"></i>
-
-<span>Celsius</span>
-
-</div>
-
-<h1>
-
-<span id="celsiusResult">--</span>°C
-
-</h1>
-
-</div>
-
-<div class="result-card">
-
-<div class="result-top">
-
-<i class="ri-fire-line"></i>
-
-<span>Fahrenheit</span>
-
-</div>
-
-<h1>
-
-<span id="fahrenheitResult">--</span>°F
-
-</h1>
-
-</div>
-
-<div class="result-card">
-
-<div class="result-top">
-
-<i class="ri-water-flash-line"></i>
-
-<span>Kelvin</span>
-
-</div>
-
-<h1>
-
-<span id="kelvinResult">--</span>K
-
-</h1>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
-
-<!--==========================
+  <!--==============================
 FEATURES
-===========================-->
+===============================-->
 
-<section id="features" class="features">
+<section class="features" id="features">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-heading">
+        <div class="section-title">
 
-<span>FEATURES</span>
+            <span>FEATURES</span>
 
-<h2>Why Choose Tempora?</h2>
+            <h2>Why Choose Tempora?</h2>
 
-<p>
-Fast, accurate and beautifully designed
-temperature conversion experience.
-</p>
+        </div>
 
-</div>
+        <div class="feature-grid">
 
-<div class="feature-grid">
+            <div class="feature-card">
 
-<div class="feature-card">
+                <i class="ri-flashlight-fill"></i>
 
-<i class="ri-flashlight-fill"></i>
+                <h3>Instant Conversion</h3>
 
-<h3>Instant Conversion</h3>
+                <p>
+                    Convert temperatures instantly with
+                    accurate scientific formulas.
+                </p>
 
-<p>
-Real-time conversion with one click.
-Fast calculations with zero delay.
-</p>
+            </div>
 
-</div>
+            <div class="feature-card">
 
-<div class="feature-card">
+                <i class="ri-shield-check-fill"></i>
 
-<i class="ri-award-fill"></i>
+                <h3>Reliable Accuracy</h3>
 
-<h3>High Accuracy</h3>
+                <p>
+                    Supports Celsius, Fahrenheit
+                    and Kelvin with precise calculations.
+                </p>
 
-<p>
-Uses precise scientific formulas
-for all temperature conversions.
-</p>
+            </div>
 
-</div>
+            <div class="feature-card">
 
-<div class="feature-card">
+                <i class="ri-smartphone-fill"></i>
 
-<i class="ri-shield-check-fill"></i>
+                <h3>Responsive Design</h3>
 
-<h3>Validation</h3>
+                <p>
+                    Beautiful experience on desktop,
+                    tablet and mobile devices.
+                </p>
 
-<p>
-Detects invalid inputs and prevents
-absolute zero violations.
-</p>
+            </div>
 
-</div>
+            <div class="feature-card">
 
-<div class="feature-card">
+                <i class="ri-palette-fill"></i>
 
-<i class="ri-smartphone-fill"></i>
+                <h3>Premium UI</h3>
 
-<h3>Responsive Design</h3>
+                <p>
+                    Elegant glassmorphism inspired by
+                    mountains, rain and sunsets.
+                </p>
 
-<p>
-Optimized beautifully for desktop,
-tablet and mobile devices.
-</p>
+            </div>
 
-</div>
+        </div>
 
-</div>
-
-</div>
+    </div>
 
 </section>
-  <!--==========================
+
+<!--==============================
 ABOUT
-===========================-->
+===============================-->
 
-<section id="about" class="about">
+<section class="about" id="about">
 
-<div class="container about-grid">
+    <div class="container">
 
-<div class="about-left">
+        <div class="section-title">
 
-<span>ABOUT TEMPORA</span>
+            <span>ABOUT</span>
 
-<h2>
-Inspired by Nature,
-Built for Precision.
-</h2>
+            <h2>Nature Inspired Experience</h2>
 
-<p>
+        </div>
 
-Tempora is a premium Temperature Converter
-designed with a peaceful nature-inspired user
-interface. Combining modern glassmorphism,
-beautiful landscapes and accurate scientific
-calculations, Tempora delivers an elegant
-experience for converting Celsius,
-Fahrenheit and Kelvin instantly.
+        <p class="about-text">
 
-</p>
+            Tempora is a premium temperature converter
+            crafted with modern glassmorphism, cinematic
+            landscapes and elegant animations.
+            It combines simplicity, beauty and scientific
+            accuracy into one seamless experience.
 
-</div>
+        </p>
 
-<div class="glass-widget">
-
-<i class="ri-temp-cold-fill"></i>
-
-<h2>3 Units</h2>
-
-<p>
-
-Celsius, Fahrenheit & Kelvin
-supported with accurate conversion.
-
-</p>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!--==========================
-CTA
-===========================-->
-
-<section class="cta">
-
-<div class="container">
-
-<div class="cta-box">
-
-<h2>
-
-Elegant. Accurate. Instant.
-
-</h2>
-
-<p>
-
-A premium temperature converter inspired
-by peaceful lakes, mountains and sunsets.
-
-</p>
-
-<a href="#converter" class="primary-btn">
-
-Convert Now
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================
+<!--==============================
 FOOTER
-===========================-->
+===============================-->
 
-<footer id="contact">
+<footer>
 
-<div class="container footer">
+    <div class="container footer">
 
-<div class="footer-logo">
+        <h2>Tempora</h2>
 
-<i class="ri-temp-hot-fill"></i>
+        <p>
 
-<h2>Tempora</h2>
+            Elegant • Accurate • Instant
 
-</div>
+        </p>
 
-<p>
+        <div class="social-links">
 
-Luxury Temperature Converter crafted
-using HTML, CSS & JavaScript.
+            <a href="#"><i class="ri-github-fill"></i></a>
 
-</p>
+            <a href="#"><i class="ri-linkedin-fill"></i></a>
 
-<div class="footer-links">
+            <a href="#"><i class="ri-instagram-line"></i></a>
 
-<a href="#home">Home</a>
+            <a href="#"><i class="ri-mail-line"></i></a>
 
-<a href="#features">Features</a>
+        </div>
 
-<a href="#about">About</a>
+        <p class="copyright">
 
-<a href="#converter">Converter</a>
+            © 2026 Tempora.
+            Designed with HTML, CSS & JavaScript.
 
-</div>
+        </p>
 
-<div class="social-icons">
-
-<a href="#">
-
-<i class="ri-github-fill"></i>
-
-</a>
-
-<a href="#">
-
-<i class="ri-linkedin-fill"></i>
-
-</a>
-
-<a href="#">
-
-<i class="ri-instagram-line"></i>
-
-</a>
-
-<a href="#">
-
-<i class="ri-mail-line"></i>
-
-</a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 Tempora. Designed with ❤️ using HTML,
-CSS & JavaScript.
-
-</p>
-
-</div>
+    </div>
 
 </footer>
 
-<!--==========================
+<!--==============================
 SCRIPT
-===========================-->
+===============================-->
 
 <script src="script.js"></script>
 
