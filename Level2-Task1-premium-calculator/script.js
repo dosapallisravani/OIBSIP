@@ -1,214 +1,128 @@
 
 // =========================
-// NOVACALC SCRIPT
+// NOVACALC WORKING SCRIPT
 // =========================
-const equalButton = document.querySelector(".equal");
-equalButton.addEventListener("click",calculate);
-document.addEventListener("DOMContentLoaded",()=>{
 
 const display = document.getElementById("display");
 
-const numberButtons = document.querySelectorAll(".number");
-const operatorButtons = document.querySelectorAll(".operator");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 
-const clearButton = document.querySelector(".clear");
-const deleteButton = document.querySelector(".delete");
-const equalButton = document.querySelector(".equal");
+const clearBtn = document.querySelector(".clear");
+const deleteBtn = document.querySelector(".delete");
+const equalBtn = document.querySelector(".equal");
 
-console.log("Calculator Loaded");
-console.log(numberButtons);
-console.log(operatorButtons);
 
-});
-// =========================
-// NUMBER BUTTONS
-// =========================
+let firstNumber = "";
+let operator = "";
+let resetDisplay = false;
 
-numberButtons.forEach(button => {
 
-button.addEventListener("click", () => {
+// Numbers
 
-const value = button.dataset.value;
+numbers.forEach(btn => {
 
-if(waitingForSecondNumber){
+    btn.addEventListener("click", () => {
 
-display.value = "";
+        if(resetDisplay){
+            display.value = "";
+            resetDisplay = false;
+        }
 
-waitingForSecondNumber = false;
+        display.value += btn.dataset.value;
 
-}
-
-if(value==="." && display.value.includes(".")) return;
-
-display.value += value;
+    });
 
 });
 
-});
 
-// =========================
-// OPERATOR BUTTONS
-// =========================
+// Operators
 
-operatorButtons.forEach(button => {
+operators.forEach(btn => {
 
-    button.addEventListener("click", () => {
-
-        console.log("Operator:", button.dataset.value);
+    btn.addEventListener("click", () => {
 
         if(display.value === "") return;
 
         firstNumber = display.value;
 
-        currentOperator = button.dataset.value;
+        operator = btn.dataset.value;
 
-        waitingForSecondNumber = true;
+        resetDisplay = true;
 
     });
 
 });
-// =========================
-// CALCULATE
-// =========================
 
-equalButton.addEventListener("click",calculate);
 
-function calculate(){
+// Equal
 
-if(firstNumber==="" || currentOperator==="") return;
+equalBtn.addEventListener("click", () => {
 
-secondNumber = display.value;
+    if(firstNumber === "" || operator === "") return;
 
-let a = parseFloat(firstNumber);
 
-let b = parseFloat(secondNumber);
+    let secondNumber = display.value;
 
-let result = 0;
+    let a = Number(firstNumber);
+    let b = Number(secondNumber);
 
-switch(currentOperator){
+    let result;
 
-case "+":
-result = a + b;
-break;
 
-case "-":
-result = a - b;
-break;
+    switch(operator){
 
-case "*":
-result = a * b;
-break;
+        case "+":
+            result = a + b;
+            break;
 
-case "/":
+        case "-":
+            result = a - b;
+            break;
 
-if(b===0){
+        case "*":
+            result = a * b;
+            break;
 
-display.value="Error";
+        case "/":
+            result = b === 0 ? "Error" : a / b;
+            break;
 
-resetCalculator();
+        case "%":
+            result = a % b;
+            break;
 
-return;
+    }
 
-}
 
-result = a / b;
-break;
+    display.value = result;
 
-case "%":
 
-result = a % b;
-break;
+    firstNumber = "";
+    operator = "";
+    resetDisplay = true;
 
-}
-
-display.value = Number(result.toFixed(6));
-
-firstNumber = display.value;
-
-currentOperator = "";
-
-waitingForSecondNumber = true;
-
-}
-
-// =========================
-// CLEAR
-// =========================
-
-clearButton.addEventListener("click",()=>{
-
-display.value="";
-
-resetCalculator();
 
 });
 
-// =========================
-// DELETE
-// =========================
 
-deleteButton.addEventListener("click",()=>{
+// Clear
 
-if(waitingForSecondNumber) return;
+clearBtn.addEventListener("click",()=>{
 
-display.value = display.value.slice(0,-1);
+    display.value="";
+
+    firstNumber="";
+    operator="";
+    resetDisplay=false;
 
 });
 
-// =========================
-// RESET
-// =========================
 
-function resetCalculator(){
+// Delete
 
-firstNumber="";
+deleteBtn.addEventListener("click",()=>{
 
-secondNumber="";
-
-currentOperator="";
-
-waitingForSecondNumber=false;
-
-}
-
-// =========================
-// KEYBOARD SUPPORT
-// =========================
-
-document.addEventListener("keydown",(e)=>{
-
-const key = e.key;
-
-if(!isNaN(key) || key==="."){
-
-document.querySelector(`[data-value="${key}"]`)?.click();
-
-}
-
-if(["+","-","*","/","%"].includes(key)){
-
-document.querySelector(`.operator[data-value="${key}"]`)?.click();
-
-}
-
-if(key==="Enter"){
-
-e.preventDefault();
-
-equalButton.click();
-
-}
-
-if(key==="Backspace"){
-
-deleteButton.click();
-
-}
-
-if(key==="Escape"){
-
-clearButton.click();
-
-}
+    display.value = display.value.slice(0,-1);
 
 });
