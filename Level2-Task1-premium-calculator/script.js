@@ -36,27 +36,25 @@ numbers.forEach(btn => {
 });
 
 
-// Operators
+// =========================
+// OPERATOR BUTTONS
+// =========================
 
-operators.forEach(btn => {
+operators.forEach(button => {
 
-    btn.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
         if(display.value === "") return;
 
         firstNumber = display.value;
 
-        operator = btn.dataset.value;
+        operator = button.getAttribute("data-value");
 
-        resetDisplay = true;
+        display.value = "";
 
     });
 
 });
-
-
-// Equal
-
 equalBtn.addEventListener("click", () => {
 
     if(firstNumber === "" || operator === "") return;
@@ -64,32 +62,29 @@ equalBtn.addEventListener("click", () => {
 
     let secondNumber = display.value;
 
-    let a = Number(firstNumber);
-    let b = Number(secondNumber);
-
     let result;
 
 
     switch(operator){
 
         case "+":
-            result = a + b;
+            result = Number(firstNumber) + Number(secondNumber);
             break;
 
         case "-":
-            result = a - b;
+            result = Number(firstNumber) - Number(secondNumber);
             break;
 
         case "*":
-            result = a * b;
+            result = Number(firstNumber) * Number(secondNumber);
             break;
 
         case "/":
-            result = b === 0 ? "Error" : a / b;
+            result = Number(firstNumber) / Number(secondNumber);
             break;
 
         case "%":
-            result = a % b;
+            result = Number(firstNumber) % Number(secondNumber);
             break;
 
     }
@@ -97,15 +92,7 @@ equalBtn.addEventListener("click", () => {
 
     display.value = result;
 
-
-    firstNumber = "";
-    operator = "";
-    resetDisplay = true;
-
-
 });
-
-
 // Clear
 
 clearBtn.addEventListener("click",()=>{
