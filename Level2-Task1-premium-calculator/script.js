@@ -1,43 +1,40 @@
-// ======================
-// SELECT ELEMENTS
-// ======================
+// =========================
+// NOVACALC SCRIPT
+// =========================
 
 const display = document.getElementById("display");
 
-const numberBtns = document.querySelectorAll(".number");
-const operatorBtns = document.querySelectorAll(".operator");
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
 
-const clearBtn = document.querySelector(".clear");
-const backspaceBtn = document.querySelector(".backspace");
-const equalBtn = document.querySelector(".equal");
-
-// ======================
-// VARIABLES
-// ======================
+const clearButton = document.querySelector(".clear");
+const deleteButton = document.querySelector(".delete");
+const equalButton = document.querySelector(".equal");
 
 let firstNumber = "";
 let secondNumber = "";
-let operator = "";
-let waitingForSecond = false;
+let currentOperator = "";
+let waitingForSecondNumber = false;
 
-// ======================
+// =========================
 // NUMBER BUTTONS
-// ======================
+// =========================
 
-numberBtns.forEach(btn => {
+numberButtons.forEach(button => {
 
-btn.addEventListener("click", () => {
+button.addEventListener("click", () => {
 
-const value = btn.textContent;
+const value = button.dataset.value;
 
-if(waitingForSecond){
+if(waitingForSecondNumber){
 
 display.value = "";
-waitingForSecond = false;
+
+waitingForSecondNumber = false;
 
 }
 
-if(value === "." && display.value.includes(".")) return;
+if(value==="." && display.value.includes(".")) return;
 
 display.value += value;
 
@@ -45,42 +42,51 @@ display.value += value;
 
 });
 
-// ======================
-// OPERATORS
-// ======================
+// =========================
+// OPERATOR BUTTONS
+// =========================
 
-operatorBtns.forEach(btn => {
+operatorButtons.forEach(button=>{
 
-btn.addEventListener("click", () => {
+button.addEventListener("click",()=>{
 
-if(display.value === "") return;
+if(display.value==="") return;
+
+if(firstNumber!=="" && !waitingForSecondNumber){
+
+calculate();
+
+}
 
 firstNumber = display.value;
 
-operator = btn.textContent;
+currentOperator = button.dataset.value;
 
-waitingForSecond = true;
-
-});
+waitingForSecondNumber = true;
 
 });
 
-// ======================
+});
+
+// =========================
 // CALCULATE
-// ======================
+// =========================
 
-equalBtn.addEventListener("click", () => {
+equalButton.addEventListener("click",calculate);
 
-if(firstNumber === "" || operator === "") return;
+function calculate(){
+
+if(firstNumber==="" || currentOperator==="") return;
 
 secondNumber = display.value;
 
 let a = parseFloat(firstNumber);
+
 let b = parseFloat(secondNumber);
 
-let result;
+let result = 0;
 
-switch(operator){
+switch(currentOperator){
 
 case "+":
 result = a + b;
@@ -90,16 +96,18 @@ case "-":
 result = a - b;
 break;
 
-case "×":
+case "*":
 result = a * b;
 break;
 
-case "÷":
+case "/":
 
-if(b === 0){
+if(b===0){
 
-display.value = "Error";
-reset();
+display.value="Error";
+
+resetCalculator();
+
 return;
 
 }
@@ -108,88 +116,79 @@ result = a / b;
 break;
 
 case "%":
+
 result = a % b;
 break;
-
-default:
-return;
 
 }
 
 display.value = Number(result.toFixed(6));
 
-firstNumber = "";
-secondNumber = "";
-operator = "";
+firstNumber = display.value;
 
-});
+currentOperator = "";
 
-// ======================
+waitingForSecondNumber = true;
+
+}
+
+// =========================
 // CLEAR
-// ======================
+// =========================
 
-clearBtn.addEventListener("click", () => {
+clearButton.addEventListener("click",()=>{
 
-display.value = "";
+display.value="";
 
-reset();
+resetCalculator();
 
 });
 
-// ======================
-// BACKSPACE
-// ======================
+// =========================
+// DELETE
+// =========================
 
-backspaceBtn.addEventListener("click", () => {
+deleteButton.addEventListener("click",()=>{
+
+if(waitingForSecondNumber) return;
 
 display.value = display.value.slice(0,-1);
 
 });
 
-// ======================
+// =========================
 // RESET
-// ======================
+// =========================
 
-function reset(){
+function resetCalculator(){
 
-firstNumber = "";
-secondNumber = "";
-operator = "";
-waitingForSecond = false;
+firstNumber="";
+
+secondNumber="";
+
+currentOperator="";
+
+waitingForSecondNumber=false;
 
 }
 
-// ======================
+// =========================
 // KEYBOARD SUPPORT
-// ======================
+// =========================
 
-document.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown",(e)=>{
 
 const key = e.key;
 
-if(!isNaN(key) || key === "."){
+if(!isNaN(key) || key==="."){
 
-if(waitingForSecond){
-
-display.value = "";
-waitingForSecond = false;
+document.querySelector(`[data-value="${key}"]`)?.click();
 
 }
 
-if(key==="." && display.value.includes(".")) return;
+if(["+","-","*","/","%"].includes(key)){
 
-display.value += key;
-
-}
-
-if(key==="+" || key==="-" || key==="*" || key==="/" || key==="%"){
-
-firstNumber = display.value;
-
-operator = key==="*" ? "×" :
-key==="/" ? "÷" : key;
-
-waitingForSecond = true;
+document.querySelector(`.operator[data-value="${key}"]`)?.click();
 
 }
 
@@ -197,19 +196,19 @@ if(key==="Enter"){
 
 e.preventDefault();
 
-equalBtn.click();
+equalButton.click();
 
 }
 
 if(key==="Backspace"){
 
-backspaceBtn.click();
+deleteButton.click();
 
 }
 
 if(key==="Escape"){
 
-clearBtn.click();
+clearButton.click();
 
 }
 
