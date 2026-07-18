@@ -34,8 +34,7 @@ Lumera/
 ## 🚀 Live Demo
 https://dosapallisravani.github.io/OIBSIP/Level1-Task1-Landing-Page/
 
-## 📸 Screenshot
-(Add your project screenshot here)
+
 
 ## 👩‍💻 Developed By
 **Sravani Dosapalli**
