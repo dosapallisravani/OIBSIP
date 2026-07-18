@@ -1,5 +1,5 @@
 /*=========================
-GOOGLE RESET
+RESET
 =========================*/
 
 *{
@@ -16,9 +16,7 @@ scroll-behavior:smooth;
 body{
 
 background:#07131f;
-
-color:#fff;
-
+color:#ffffff;
 overflow-x:hidden;
 
 }
@@ -27,50 +25,29 @@ overflow-x:hidden;
 BACKGROUND
 =========================*/
 
-.hero{
+.bg-overlay{
 
-position:relative;
+position:fixed;
+top:0;
+left:0;
 
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:120px 8%;
+width:100%;
+height:100%;
 
 background:
 
 linear-gradient(
-rgba(8,18,30,.55),
-rgba(0,0,0,.45)
+rgba(5,15,30,.60),
+rgba(0,0,0,.55)
 ),
 
-url("images/background.jpg");
+url("images/background.png");
 
 background-size:cover;
-
 background-position:center;
-
 background-repeat:no-repeat;
 
-}
-
-.overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at top,
-rgba(255,193,7,.12),
-transparent 50%
-);
+z-index:-2;
 
 }
 
@@ -78,30 +55,32 @@ transparent 50%
 NAVBAR
 =========================*/
 
-.navbar{
+header{
 
 position:fixed;
-
 top:0;
 left:0;
 
 width:100%;
 
-padding:20px 8%;
+z-index:1000;
+
+}
+
+nav{
 
 display:flex;
 
 justify-content:space-between;
-
 align-items:center;
+
+padding:22px 8%;
 
 background:rgba(255,255,255,.08);
 
 backdrop-filter:blur(15px);
 
-border-bottom:1px solid rgba(255,255,255,.15);
-
-z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.12);
 
 }
 
@@ -111,39 +90,37 @@ display:flex;
 
 align-items:center;
 
-gap:10px;
+gap:12px;
 
-font-size:24px;
+font-size:26px;
 
 font-weight:600;
-
-color:#fff;
 
 }
 
 .logo i{
 
-font-size:30px;
+font-size:28px;
 
 color:#FFD54F;
 
 }
 
-.nav-links{
+nav ul{
 
 display:flex;
 
-gap:35px;
-
 list-style:none;
+
+gap:35px;
 
 }
 
-.nav-links a{
+nav ul li a{
 
 text-decoration:none;
 
-color:#fff;
+color:#ffffff;
 
 font-size:16px;
 
@@ -151,27 +128,19 @@ transition:.3s;
 
 }
 
-.nav-links a:hover{
+nav ul li a:hover{
 
 color:#FFD54F;
 
 }
 
-.menu-btn{
-
-display:none;
-
-font-size:28px;
-
-cursor:pointer;
-
-}
-
 /*=========================
-HERO TEXT
+HERO
 =========================*/
 
-.hero-container{
+.hero{
+
+min-height:100vh;
 
 display:flex;
 
@@ -179,25 +148,23 @@ justify-content:space-between;
 
 align-items:center;
 
-width:100%;
+padding:120px 8%;
 
 gap:70px;
 
-z-index:2;
-
 }
 
-.hero-text{
+.left{
 
 max-width:520px;
 
 }
 
-.tag{
+.badge{
 
 display:inline-block;
 
-padding:10px 20px;
+padding:10px 22px;
 
 background:rgba(255,255,255,.12);
 
@@ -207,29 +174,25 @@ margin-bottom:25px;
 
 border:1px solid rgba(255,255,255,.15);
 
-font-size:14px;
-
 }
 
-.hero-text h1{
+.left h1{
 
-font-size:68px;
+font-size:72px;
 
 line-height:1.1;
 
 margin-bottom:20px;
 
-text-shadow:0 10px 30px rgba(0,0,0,.4);
-
 }
 
-.hero-text p{
+.left p{
 
 font-size:18px;
 
 line-height:1.8;
 
-color:#ddd;
+color:#dddddd;
 
 margin-bottom:30px;
 
@@ -237,13 +200,11 @@ margin-bottom:30px;
 
 .hero-btn{
 
-display:inline-flex;
+display:inline-block;
 
-align-items:center;
+padding:15px 34px;
 
-gap:10px;
-
-padding:15px 30px;
+border-radius:40px;
 
 background:#FFD54F;
 
@@ -252,8 +213,6 @@ color:#111;
 font-weight:600;
 
 text-decoration:none;
-
-border-radius:40px;
 
 transition:.35s;
 
@@ -270,9 +229,9 @@ box-shadow:0 15px 35px rgba(255,213,79,.45);
 CALCULATOR
 =========================*/
 
-.calculator-box{
+.calculator{
 
-width:380px;
+width:390px;
 
 padding:30px;
 
@@ -280,39 +239,12 @@ border-radius:28px;
 
 background:rgba(255,255,255,.10);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(18px);
 
 border:1px solid rgba(255,255,255,.18);
 
-box-shadow:0 25px 60px rgba(0,0,0,.35);
-
-}
-
-.calculator-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:20px;
-
-}
-
-.calculator-header h2{
-
-font-size:24px;
-
-font-weight:600;
-
-}
-
-.calculator-header i{
-
-font-size:28px;
-
-color:#FFD54F;
+box-shadow:
+0 25px 60px rgba(0,0,0,.40);
 
 }
 
@@ -320,15 +252,7 @@ color:#FFD54F;
 DISPLAY
 =========================*/
 
-.display{
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(255,255,255,.15);
-
-border-radius:18px;
-
-padding:18px;
+.screen{
 
 margin-bottom:22px;
 
@@ -338,19 +262,29 @@ margin-bottom:22px;
 
 width:100%;
 
-background:transparent;
+height:90px;
+
+padding:20px;
 
 border:none;
 
 outline:none;
 
-text-align:right;
+border-radius:20px;
+
+background:rgba(255,255,255,.10);
+
+color:#fff;
 
 font-size:42px;
 
 font-weight:600;
 
-color:#fff;
+text-align:right;
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.15);
 
 }
 
@@ -358,7 +292,7 @@ color:#fff;
 BUTTON GRID
 =========================*/
 
-.buttons{
+.keys{
 
 display:grid;
 
@@ -374,11 +308,13 @@ BUTTONS
 
 .btn{
 
-height:70px;
+height:72px;
 
 border:none;
 
 outline:none;
+
+cursor:pointer;
 
 border-radius:18px;
 
@@ -386,17 +322,15 @@ font-size:24px;
 
 font-weight:600;
 
-cursor:pointer;
-
 color:#fff;
 
 background:rgba(255,255,255,.10);
 
+border:1px solid rgba(255,255,255,.15);
+
 backdrop-filter:blur(10px);
 
-border:1px solid rgba(255,255,255,.12);
-
-transition:.3s ease;
+transition:.3s;
 
 }
 
@@ -404,29 +338,81 @@ transition:.3s ease;
 
 transform:translateY(-5px);
 
-box-shadow:0 12px 25px rgba(0,0,0,.35);
+box-shadow:
+0 15px 30px rgba(0,0,0,.35);
 
 }
 
 /*=========================
-SPECIAL BUTTONS
+NUMBER BUTTONS
+=========================*/
+
+.number{
+
+background:rgba(255,255,255,.08);
+
+}
+
+/*=========================
+OPERATORS
 =========================*/
 
 .operator{
 
-background:linear-gradient(135deg,#ffb347,#ff8c42);
+background:linear-gradient(
+135deg,
+#FFB347,
+#FF8C42);
 
 }
 
 .operator:hover{
 
-background:linear-gradient(135deg,#ffc86a,#ff9d57);
+background:linear-gradient(
+135deg,
+#FFC96B,
+#FF9D5C);
 
 }
 
+/*=========================
+CLEAR
+=========================*/
+
+.clear{
+
+background:linear-gradient(
+135deg,
+#ff4b5c,
+#ff1744);
+
+}
+
+/*=========================
+DELETE
+=========================*/
+
+.delete{
+
+background:linear-gradient(
+135deg,
+#4F8CFF,
+#2962FF);
+
+}
+
+/*=========================
+EQUAL
+=========================*/
+
 .equal{
 
-background:linear-gradient(135deg,#00c853,#00a152);
+background:linear-gradient(
+135deg,
+#00C853,
+#00A152);
+
+font-size:30px;
 
 }
 
@@ -436,17 +422,9 @@ transform:scale(1.05);
 
 }
 
-.clear{
-
-background:linear-gradient(135deg,#ff4b5c,#ff1744);
-
-}
-
-.backspace{
-
-background:linear-gradient(135deg,#4f8cff,#2962ff);
-
-}
+/*=========================
+ZERO BUTTON
+=========================*/
 
 .zero{
 
@@ -459,15 +437,13 @@ FEATURES
 
 .features{
 
-padding:90px 8%;
-
-background:rgba(255,255,255,.03);
+padding:100px 8%;
 
 text-align:center;
 
 }
 
-.section-title{
+.features h2{
 
 font-size:42px;
 
@@ -481,13 +457,13 @@ font-weight:700;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
 gap:30px;
 
 }
 
-.feature-card{
+.card{
 
 padding:35px 25px;
 
@@ -497,13 +473,13 @@ backdrop-filter:blur(18px);
 
 border:1px solid rgba(255,255,255,.15);
 
-border-radius:22px;
+border-radius:25px;
 
 transition:.4s;
 
 }
 
-.feature-card:hover{
+.card:hover{
 
 transform:translateY(-10px);
 
@@ -511,25 +487,25 @@ box-shadow:0 20px 40px rgba(0,0,0,.35);
 
 }
 
-.feature-card i{
+.card i{
 
-font-size:45px;
+font-size:50px;
 
 color:#FFD54F;
 
-margin-bottom:15px;
+margin-bottom:18px;
 
 }
 
-.feature-card h3{
+.card h3{
 
 font-size:24px;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
 }
 
-.feature-card p{
+.card p{
 
 font-size:15px;
 
@@ -545,7 +521,7 @@ ABOUT
 
 .about{
 
-padding:90px 8%;
+padding:100px 8%;
 
 text-align:center;
 
@@ -557,11 +533,21 @@ max-width:850px;
 
 margin:auto;
 
+background:rgba(255,255,255,.08);
+
+padding:40px;
+
+border-radius:25px;
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
 }
 
 .about h2{
 
-font-size:42px;
+font-size:40px;
 
 margin-bottom:25px;
 
@@ -575,8 +561,6 @@ line-height:1.9;
 
 color:#ddd;
 
-margin-bottom:20px;
-
 }
 
 /*=========================
@@ -585,11 +569,15 @@ FOOTER
 
 footer{
 
+margin-top:70px;
+
 padding:35px;
 
 text-align:center;
 
-background:#05101b;
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(10px);
 
 border-top:1px solid rgba(255,255,255,.12);
 
@@ -597,15 +585,17 @@ border-top:1px solid rgba(255,255,255,.12);
 
 footer h3{
 
-font-size:26px;
+font-size:28px;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
 }
 
 footer p{
 
 margin:8px 0;
+
+font-size:15px;
 
 color:#ccc;
 
@@ -615,9 +605,9 @@ color:#ccc;
 ANIMATION
 =========================*/
 
-.hero-text,
-.calculator-box,
-.feature-card{
+.left,
+.calculator,
+.card{
 
 animation:fadeUp .8s ease;
 
@@ -647,9 +637,9 @@ transform:translateY(0);
 RESPONSIVE
 =========================*/
 
-@media(max-width:900px){
+@media(max-width:992px){
 
-.hero-container{
+.hero{
 
 flex-direction:column;
 
@@ -657,28 +647,37 @@ text-align:center;
 
 }
 
-.hero-text h1{
+.left{
 
-font-size:48px;
+max-width:100%;
 
 }
 
-.calculator-box{
+.left h1{
+
+font-size:52px;
+
+}
+
+.calculator{
 
 width:100%;
-max-width:380px;
+
+max-width:390px;
 
 }
 
-.nav-links{
+nav{
 
-display:none;
+flex-direction:column;
+
+gap:18px;
 
 }
 
-.menu-btn{
+nav ul{
 
-display:block;
+gap:18px;
 
 }
 
@@ -686,27 +685,35 @@ display:block;
 
 @media(max-width:600px){
 
-.navbar{
-
-padding:18px 5%;
-
-}
-
 .hero{
 
-padding:120px 5% 60px;
+padding:120px 5% 70px;
 
 }
 
-.hero-text h1{
+.left h1{
 
-font-size:38px;
+font-size:40px;
 
 }
 
-.hero-text p{
+.left p{
 
 font-size:16px;
+
+}
+
+.calculator{
+
+padding:20px;
+
+}
+
+#display{
+
+height:75px;
+
+font-size:32px;
 
 }
 
@@ -714,22 +721,18 @@ font-size:16px;
 
 height:60px;
 
-font-size:22px;
+font-size:20px;
 
 }
 
-#display{
+.features,
+.about{
 
-font-size:34px;
-
-}
-
-.section-title{
-
-font-size:32px;
+padding:70px 5%;
 
 }
 
+.features h2,
 .about h2{
 
 font-size:32px;
