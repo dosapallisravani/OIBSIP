@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaCalc | Premium Calculator</title>
@@ -12,20 +11,20 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 
 <body>
 
-<!-- Background -->
 
 <div class="bg-overlay"></div>
+
 
 <!-- Navbar -->
 
@@ -41,6 +40,7 @@
 
 </div>
 
+
 <ul>
 
 <li><a href="#home">Home</a></li>
@@ -53,31 +53,34 @@
 
 </ul>
 
+
 </nav>
 
 </header>
 
-<!-- Hero -->
+
+
+<!-- Hero Section -->
 
 <section class="hero" id="home">
 
+
 <div class="left">
 
+
 <span class="badge">
-
 Premium Calculator
-
 </span>
+
 
 <h1>
 
 Simple.<br>
-
 Fast.<br>
-
 Professional.
 
 </h1>
+
 
 <p>
 
@@ -85,172 +88,286 @@ A modern calculator designed with beautiful glassmorphism, responsive layout and
 
 </p>
 
+
 <a href="#calculator" class="hero-btn">
-
 Try Calculator
-
 </a>
+
 
 </div>
 
+
+
+
 <!-- Calculator -->
 
+
 <div class="calculator" id="calculator">
+
 
 <div class="screen">
 
 <input id="display" type="text" readonly>
+
 </div>
+
+
 
 <div class="keys">
 
-    <!-- Row 1 -->
-    <button type="button" class="btn clear">C</button>
 
-    <button type="button" class="btn delete">
-        <i class="fa-solid fa-delete-left"></i>
-    </button>
-
-    <button type="button" class="btn operator" data-value="%">%</button>
-
-    <button type="button" class="btn operator" data-value="/">÷</button>
+<button type="button" class="btn clear">C</button>
 
 
-    <!-- Row 2 -->
-    <button type="button" class="btn number" data-value="7">7</button>
-
-    <button type="button" class="btn number" data-value="8">8</button>
-
-    <button type="button" class="btn number" data-value="9">9</button>
-
-    <button type="button" class="btn operator" data-value="*">×</button>
+<button type="button" class="btn delete">
+<i class="fa-solid fa-delete-left"></i>
+</button>
 
 
-    <!-- Row 3 -->
-    <button type="button" class="btn number" data-value="4">4</button>
-
-    <button type="button" class="btn number" data-value="5">5</button>
-
-    <button type="button" class="btn number" data-value="6">6</button>
-
-    <button type="button" class="btn operator" data-value="-">−</button>
+<button type="button" class="btn operator" data-value="%">
+%
+</button>
 
 
-    <!-- Row 4 -->
-    <button type="button" class="btn number" data-value="1">1</button>
-
-    <button type="button" class="btn number" data-value="2">2</button>
-
-    <button type="button" class="btn number" data-value="3">3</button>
-
-    <button type="button" class="btn operator" data-value="+">+</button>
+<button type="button" class="btn operator" data-value="/">
+÷
+</button>
 
 
-    <!-- Row 5 -->
-    <button type="button" class="btn zero number" data-value="0">0</button>
 
-    <button type="button" class="btn number" data-value=".">.</button>
+<button type="button" class="btn number" data-value="7">
+7
+</button>
 
-    <button type="button" class="btn equal">=</button>
+
+<button type="button" class="btn number" data-value="8">
+8
+</button>
+
+
+<button type="button" class="btn number" data-value="9">
+9
+</button>
+
+
+<button type="button" class="btn operator" data-value="*">
+×
+</button>
+
+
+
+<button type="button" class="btn number" data-value="4">
+4
+</button>
+
+
+<button type="button" class="btn number" data-value="5">
+5
+</button>
+
+
+<button type="button" class="btn number" data-value="6">
+6
+</button>
+
+
+<button type="button" class="btn operator" data-value="-">
+-
+</button>
+
+
+
+
+<button type="button" class="btn number" data-value="1">
+1
+</button>
+
+
+<button type="button" class="btn number" data-value="2">
+2
+</button>
+
+
+<button type="button" class="btn number" data-value="3">
+3
+</button>
+
+
+<button type="button" class="btn operator" data-value="+">
++
+</button>
+
+
+
+<button type="button" class="btn zero number" data-value="0">
+0
+</button>
+
+
+<button type="button" class="btn number" data-value=".">
+.
+</button>
+
+
+<button type="button" class="btn equal">
+=
+</button>
+
+
 
 </div>
+
+
 </div>
+
+
 </section>
-    
+
+
+
+
+
 <!-- Features -->
+
 
 <section class="features" id="features">
 
-<h2>Why Choose NovaCalc?</h2>
+
+<h2>
+Why Choose NovaCalc?
+</h2>
+
+
 
 <div class="feature-grid">
+
 
 <div class="card">
 
 <i class="fa-solid fa-bolt"></i>
 
-<h3>Fast</h3>
+<h3>
+Fast
+</h3>
 
-<p>Instant calculations with smooth performance.</p>
+<p>
+Instant calculations with smooth performance.
+</p>
 
 </div>
+
+
 
 <div class="card">
 
 <i class="fa-solid fa-mobile-screen-button"></i>
 
-<h3>Responsive</h3>
+<h3>
+Responsive
+</h3>
 
-<p>Works perfectly on Desktop, Tablet and Mobile.</p>
+<p>
+Works perfectly on Desktop, Tablet and Mobile.
+</p>
 
 </div>
+
+
+
 
 <div class="card">
 
 <i class="fa-solid fa-shield-halved"></i>
 
-<h3>Secure Logic</h3>
+<h3>
+Secure Logic
+</h3>
 
-<p>Built without using <b>eval()</b>.</p>
+<p>
+Accurate calculations without errors.
+</p>
 
 </div>
 
+
 </div>
+
+
 </section>
-    <!-- ================= ABOUT ================= -->
+
+
+
+
+
+
+<!-- About -->
+
 
 <section class="about" id="about">
 
+
 <div class="about-content">
 
-<h2>About NovaCalc</h2>
+
+<h2>
+About NovaCalc
+</h2>
+
 
 <p>
 
-NovaCalc is a modern premium calculator built using
-HTML5, CSS3 and Vanilla JavaScript.
-
-It provides a fast, responsive and elegant user
-experience with beautiful glassmorphism effects,
-smooth animations and accurate calculations.
+NovaCalc is a modern premium calculator built using HTML5, CSS3 and Vanilla JavaScript. It provides a fast, responsive and elegant user experience with smooth animations.
 
 </p>
 
+
 </div>
+
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+
+
+
+
+
+<!-- Footer -->
+
 
 <footer>
 
+
 <div class="footer-content">
 
-<h3>NovaCalc</h3>
+
+<h3>
+NovaCalc
+</h3>
+
 
 <p>
-
 Oasis Infobyte Internship
-
+<br>
 Level 2 • Task 1
-
 </p>
+
 
 <p>
-
 Designed & Developed by
-
 <strong>Sravani Dosapalli</strong>
-
 </p>
+
 
 </div>
 
+
 </footer>
 
-<!-- ================= SCRIPT ================= -->
+
+
 
 <script src="script.js"></script>
+
 
 </body>
 
