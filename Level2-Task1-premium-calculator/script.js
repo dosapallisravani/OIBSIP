@@ -2,6 +2,8 @@
 // NOVACALC SCRIPT
 // =========================
 
+document.addEventListener("DOMContentLoaded",()=>{
+
 const display = document.getElementById("display");
 
 const numberButtons = document.querySelectorAll(".number");
@@ -11,11 +13,11 @@ const clearButton = document.querySelector(".clear");
 const deleteButton = document.querySelector(".delete");
 const equalButton = document.querySelector(".equal");
 
-let firstNumber = "";
-let secondNumber = "";
-let currentOperator = "";
-let waitingForSecondNumber = false;
+console.log("Calculator Loaded");
+console.log(numberButtons);
+console.log(operatorButtons);
 
+});
 // =========================
 // NUMBER BUTTONS
 // =========================
