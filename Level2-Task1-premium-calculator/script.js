@@ -1,3 +1,4 @@
+console.log("NovaCalc JS Running");
 // =========================
 // NOVACALC SCRIPT
 // =========================
@@ -48,28 +49,23 @@ display.value += value;
 // OPERATOR BUTTONS
 // =========================
 
-operatorButtons.forEach(button=>{
+operatorButtons.forEach(button => {
 
-button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
-if(display.value==="") return;
+        console.log("Operator:", button.dataset.value);
 
-if(firstNumber!=="" && !waitingForSecondNumber){
+        if(display.value === "") return;
 
-calculate();
+        firstNumber = display.value;
 
-}
+        currentOperator = button.dataset.value;
 
-firstNumber = display.value;
+        waitingForSecondNumber = true;
 
-currentOperator = button.dataset.value;
-
-waitingForSecondNumber = true;
+    });
 
 });
-
-});
-
 // =========================
 // CALCULATE
 // =========================
