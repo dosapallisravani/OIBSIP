@@ -34,9 +34,6 @@ Level1-Task3-Temperature-Converter
 │── README.md
 ```
 
-## 📸 Preview
-
-_Add your project screenshot here._
 
 ## 👩‍💻 Developed By
 
