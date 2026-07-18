@@ -1,233 +1,216 @@
-/*=========================
-FEATURES
-=========================*/
+// ======================
+// SELECT ELEMENTS
+// ======================
 
-.features{
+const display = document.getElementById("display");
 
-padding:90px 8%;
+const numberBtns = document.querySelectorAll(".number");
+const operatorBtns = document.querySelectorAll(".operator");
 
-text-align:center;
+const clearBtn = document.querySelector(".clear");
+const backspaceBtn = document.querySelector(".backspace");
+const equalBtn = document.querySelector(".equal");
 
-}
+// ======================
+// VARIABLES
+// ======================
 
-.features h2{
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
+let waitingForSecond = false;
 
-font-size:42px;
+// ======================
+// NUMBER BUTTONS
+// ======================
 
-margin-bottom:50px;
+numberBtns.forEach(btn => {
 
-}
+btn.addEventListener("click", () => {
 
-.feature-container{
+const value = btn.textContent;
 
-display:grid;
+if(waitingForSecond){
 
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-
-gap:25px;
-
-}
-
-.feature-card{
-
-padding:35px 25px;
-
-border-radius:22px;
-
-background:rgba(255,255,255,.10);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.15);
-
-transition:.4s;
+display.value = "";
+waitingForSecond = false;
 
 }
 
-.feature-card:hover{
+if(value === "." && display.value.includes(".")) return;
 
-transform:translateY(-10px);
+display.value += value;
 
-box-shadow:0 20px 40px rgba(0,0,0,.35);
+});
 
-}
+});
 
-.feature-card i{
+// ======================
+// OPERATORS
+// ======================
 
-font-size:45px;
+operatorBtns.forEach(btn => {
 
-color:#FFD54F;
+btn.addEventListener("click", () => {
 
-margin-bottom:15px;
+if(display.value === "") return;
 
-}
+firstNumber = display.value;
 
-.feature-card h3{
+operator = btn.textContent;
 
-font-size:24px;
+waitingForSecond = true;
 
-margin-bottom:10px;
+});
 
-}
+});
 
-.feature-card p{
+// ======================
+// CALCULATE
+// ======================
 
-font-size:15px;
+equalBtn.addEventListener("click", () => {
 
-line-height:1.8;
+if(firstNumber === "" || operator === "") return;
 
-color:#ddd;
+secondNumber = display.value;
 
-}
+let a = parseFloat(firstNumber);
+let b = parseFloat(secondNumber);
 
-/*=========================
-FOOTER
-=========================*/
+let result;
 
-footer{
+switch(operator){
 
-margin-top:70px;
+case "+":
+result = a + b;
+break;
 
-padding:30px;
+case "-":
+result = a - b;
+break;
 
-text-align:center;
+case "×":
+result = a * b;
+break;
 
-background:rgba(0,0,0,.45);
+case "÷":
 
-backdrop-filter:blur(10px);
+if(b === 0){
 
-border-top:1px solid rgba(255,255,255,.15);
-
-}
-
-footer p{
-
-margin:8px 0;
-
-font-size:15px;
-
-color:#ddd;
-
-}
-
-/*=========================
-ANIMATION
-=========================*/
-
-.hero-left,
-.calculator,
-.feature-card{
-
-animation:fadeUp .8s ease;
+display.value = "Error";
+reset();
+return;
 
 }
 
-@keyframes fadeUp{
+result = a / b;
+break;
 
-0%{
+case "%":
+result = a % b;
+break;
 
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
+default:
+return;
 
 }
 
-}
+display.value = Number(result.toFixed(6));
 
-/*=========================
-RESPONSIVE
-=========================*/
+firstNumber = "";
+secondNumber = "";
+operator = "";
 
-@media(max-width:900px){
+});
 
-.hero{
+// ======================
+// CLEAR
+// ======================
 
-flex-direction:column;
+clearBtn.addEventListener("click", () => {
 
-text-align:center;
+display.value = "";
 
-}
+reset();
 
-.hero-left h1{
+});
 
-font-size:48px;
+// ======================
+// BACKSPACE
+// ======================
 
-}
+backspaceBtn.addEventListener("click", () => {
 
-.calculator{
+display.value = display.value.slice(0,-1);
 
-width:100%;
+});
 
-max-width:380px;
+// ======================
+// RESET
+// ======================
 
-}
+function reset(){
 
-nav{
-
-display:none;
-
-}
-
-}
-
-@media(max-width:600px){
-
-header{
-
-padding:18px 5%;
+firstNumber = "";
+secondNumber = "";
+operator = "";
+waitingForSecond = false;
 
 }
 
-.hero{
+// ======================
+// KEYBOARD SUPPORT
+// ======================
 
-padding:120px 5% 60px;
+document.addEventListener("keydown", (e)=>{
 
-}
+const key = e.key;
 
-.hero-left h1{
+if(!isNaN(key) || key === "."){
 
-font-size:38px;
+if(waitingForSecond){
 
-}
-
-.hero-left p{
-
-font-size:16px;
-
-}
-
-.btn{
-
-height:60px;
-
-font-size:22px;
+display.value = "";
+waitingForSecond = false;
 
 }
 
-#display{
+if(key==="." && display.value.includes(".")) return;
 
-font-size:34px;
-
-}
-
-.features{
-
-padding:70px 5%;
+display.value += key;
 
 }
 
-.features h2{
+if(key==="+" || key==="-" || key==="*" || key==="/" || key==="%"){
 
-font-size:32px;
+firstNumber = display.value;
+
+operator = key==="*" ? "×" :
+key==="/" ? "÷" : key;
+
+waitingForSecond = true;
 
 }
 
+if(key==="Enter"){
+
+e.preventDefault();
+
+equalBtn.click();
+
 }
+
+if(key==="Backspace"){
+
+backspaceBtn.click();
+
+}
+
+if(key==="Escape"){
+
+clearBtn.click();
+
+}
+
+});
