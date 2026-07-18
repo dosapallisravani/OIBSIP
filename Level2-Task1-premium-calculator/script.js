@@ -2,7 +2,8 @@
 // =========================
 // NOVACALC SCRIPT
 // =========================
-
+const equalButton = document.querySelector(".equal");
+equalButton.addEventListener("click",calculate);
 document.addEventListener("DOMContentLoaded",()=>{
 
 const display = document.getElementById("display");
