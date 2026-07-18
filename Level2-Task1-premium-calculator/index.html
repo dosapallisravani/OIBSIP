@@ -1,202 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculator | Oasis InfoByte</title>
+    <title>Oasis Premium Calculator</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="background"></div>
-<div class="rain"></div>
+<!-- ================= NAVBAR ================= -->
 
 <header>
 
+<nav class="navbar">
+
 <div class="logo">
 
-<i class="fa-solid fa-calculator"></i>
+<i class="ri-calculator-fill"></i>
 
-<h2>Oasis Calculator</h2>
+<span>Oasis Calculator</span>
 
 </div>
 
-<nav>
+<ul class="nav-links">
 
-<a href="#">Home</a>
+<li><a href="#home">Home</a></li>
 
-<a href="#">Calculator</a>
+<li><a href="#calculator">Calculator</a></li>
 
-<a href="#">Features</a>
+<li><a href="#features">Features</a></li>
 
-<a href="#">About</a>
+<li><a href="#about">About</a></li>
+
+</ul>
+
+<div class="menu-btn">
+
+<i class="ri-menu-line"></i>
+
+</div>
 
 </nav>
 
 </header>
 
-<section class="hero">
+<!-- ================= HERO ================= -->
 
-<div class="hero-left">
+<section class="hero" id="home">
 
-<span class="badge">
+<div class="overlay"></div>
+
+<div class="hero-container">
+
+<div class="hero-text">
+
+<span class="tag">
 Premium • Glass UI • JavaScript
 </span>
 
 <h1>
-Smart Calculator
+
+Smart<br>
+
+Calculator
+
 </h1>
 
 <p>
 
-Perform fast and accurate calculations with a beautiful modern interface inspired by glassmorphism, rain effects and premium animations.
+Perform fast and accurate calculations with a modern luxury interface inspired by glassmorphism and premium design.
 
 </p>
 
+<a href="#calculator" class="hero-btn">
+
+Open Calculator
+
+<i class="ri-arrow-right-line"></i>
+
+</a>
+
 </div>
 
-<div class="calculator glass">
+<!-- ================= CALCULATOR ================= -->
+
+<div class="calculator-box" id="calculator">
+
+<div class="calculator-header">
+
+<h2>
+
+Calculator
+
+</h2>
+
+<i class="ri-calculator-line"></i>
+
+</div>
 
 <div class="display">
 
 <input
 type="text"
 id="display"
-readonly
-placeholder="0">
+placeholder="0"
+readonly>
 
 </div>
-  <div class="buttons">
 
-<!-- Row 1 -->
+<div class="buttons">
+<button class="btn clear">C</button>
 
-<button class="btn clear" data-action="clear">C</button>
-
-<button class="btn delete" data-action="delete">
-<i class="fa-solid fa-delete-left"></i>
+<button class="btn backspace">
+<i class="ri-delete-back-2-line"></i>
 </button>
 
-<button class="btn operator" data-value="%">%</button>
+<button class="btn operator">%</button>
 
-<button class="btn operator" data-value="/">÷</button>
+<button class="btn operator">÷</button>
 
-<!-- Row 2 -->
 
-<button class="btn number" data-value="7">7</button>
+<button class="btn number">7</button>
 
-<button class="btn number" data-value="8">8</button>
+<button class="btn number">8</button>
 
-<button class="btn number" data-value="9">9</button>
+<button class="btn number">9</button>
 
-<button class="btn operator" data-value="*">×</button>
+<button class="btn operator">×</button>
 
-<!-- Row 3 -->
 
-<button class="btn number" data-value="4">4</button>
+<button class="btn number">4</button>
 
-<button class="btn number" data-value="5">5</button>
+<button class="btn number">5</button>
 
-<button class="btn number" data-value="6">6</button>
+<button class="btn number">6</button>
 
-<button class="btn operator" data-value="-">−</button>
+<button class="btn operator">-</button>
 
-<!-- Row 4 -->
 
-<button class="btn number" data-value="1">1</button>
+<button class="btn number">1</button>
 
-<button class="btn number" data-value="2">2</button>
+<button class="btn number">2</button>
 
-<button class="btn number" data-value="3">3</button>
+<button class="btn number">3</button>
 
-<button class="btn operator" data-value="+">+</button>
+<button class="btn operator">+</button>
 
-<!-- Row 5 -->
 
-<button class="btn zero number" data-value="0">0</button>
+<button class="btn zero">0</button>
 
-<button class="btn number" data-value=".">.</button>
+<button class="btn number">.</button>
 
-<button class="btn equal" data-action="equals">=</button>
+<button class="btn equal">=</button>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
-  <!-- FEATURES -->
 
-<section class="features">
 
-<h2>Why Choose This Calculator?</h2>
 
-<div class="feature-container">
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+<h2 class="section-title">
+
+Why Choose This Calculator?
+
+</h2>
+
+<div class="feature-grid">
 
 <div class="feature-card">
 
-<i class="fa-solid fa-bolt"></i>
+<i class="ri-flashlight-fill"></i>
 
 <h3>Fast Performance</h3>
 
-<p>Instant calculations with smooth animations.</p>
+<p>
+
+Instant calculations with smooth animations.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<i class="fa-solid fa-mobile-screen"></i>
+<i class="ri-smartphone-fill"></i>
 
 <h3>Responsive</h3>
 
-<p>Works perfectly on Desktop, Tablet and Mobile.</p>
+<p>
+
+Works perfectly on Desktop, Tablet and Mobile.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<i class="fa-solid fa-shield-halved"></i>
+<i class="ri-shield-check-fill"></i>
 
 <h3>Safe Logic</h3>
 
-<p>No eval() used. Built completely with Vanilla JavaScript.</p>
+<p>
+
+No eval() used. Built completely with Vanilla JavaScript.
+
+</p>
 
 </div>
 
 <div class="feature-card">
 
-<i class="fa-solid fa-palette"></i>
+<i class="ri-vip-diamond-fill"></i>
 
 <h3>Premium Design</h3>
 
-<p>Luxury Glassmorphism UI with rainy background.</p>
+<p>
+
+Luxury Glassmorphism UI with modern gradients.
+
+</p>
 
 </div>
 
 </div>
 
 </section>
+<!-- ================= ABOUT ================= -->
 
-<!-- FOOTER -->
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <h2>About This Project</h2>
+
+        <p>
+            This Premium Calculator was developed using
+            HTML5, CSS3 and Vanilla JavaScript as part of
+            Oasis Infobyte Web Development Internship
+            Level 2 - Task 1.
+        </p>
+
+        <p>
+            It supports basic arithmetic operations,
+            operator chaining, backspace, clear,
+            responsive design and premium glassmorphism UI.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<p>© 2026 Oasis InfoByte Level 2 - Task 1</p>
+    <h3>Oasis Calculator</h3>
 
-<p>Designed & Developed by <strong>Sravani Dosapalli</strong></p>
+    <p>
+        © 2026 Oasis InfoByte Level 2 - Task 1
+    </p>
+
+    <p>
+        Designed & Developed by
+        <strong>Sravani Dosapalli</strong>
+    </p>
 
 </footer>
+
+
+
+<!-- ================= SCRIPT ================= -->
 
 <script src="script.js"></script>
 
