@@ -1,166 +1,109 @@
 const display = document.getElementById("display");
 
+const buttons = document.querySelectorAll(".buttons button");
 
-const numbers = document.querySelectorAll(".number");
-const operators = document.querySelectorAll(".operator");
-
-
-const clearBtn = document.querySelector(".clear");
-const deleteBtn = document.querySelector(".delete");
-const equalBtn = document.querySelector(".equal");
-
-
-let firstNumber = "";
-let operator = "";
-let reset = false;
+let currentInput = "";
 
 
 
-// Numbers
+buttons.forEach(button => {
 
-numbers.forEach(button=>{
-
-    button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
 
-        if(reset){
+        let value = button.innerText;
 
-            display.value="";
 
-            reset=false;
+
+        // Clear All
+        if(value === "AC"){
+
+            currentInput = "";
+            display.innerText = "0";
 
         }
 
 
-        display.value += button.dataset.value;
+
+        // Delete Last Character
+        else if(value === "DEL"){
+
+            currentInput = currentInput.slice(0,-1);
+
+            display.innerText =
+            currentInput || "0";
+
+        }
+
+
+
+        // Calculate Result
+        else if(value === "="){
+
+            try{
+
+                currentInput =
+                eval(currentInput);
+
+                display.innerText =
+                currentInput;
+
+            }
+
+            catch{
+
+                display.innerText =
+                "Error";
+
+                currentInput="";
+
+            }
+
+        }
+
+
+
+        // Percentage
+        else if(value === "%"){
+
+            currentInput =
+            currentInput / 100;
+
+            display.innerText =
+            currentInput;
+
+        }
+
+
+
+        // Operators
+
+        else{
+
+            if(value === "×"){
+
+                value="*";
+
+            }
+
+            if(value === "÷"){
+
+                value="/";
+
+            }
+
+
+            currentInput += value;
+
+
+            display.innerText =
+            currentInput;
+
+        }
+
 
 
     });
-
-
-});
-
-
-
-
-// Operators
-
-operators.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        firstNumber = Number(display.value);
-
-
-        operator = button.dataset.value;
-
-
-        reset=true;
-
-
-    });
-
-
-});
-
-
-
-
-
-// Equal
-
-
-equalBtn.addEventListener("click",()=>{
-
-
-    let secondNumber = Number(display.value);
-
-
-    let result;
-
-
-    switch(operator){
-
-
-        case "+":
-
-            result = firstNumber + secondNumber;
-
-            break;
-
-
-
-        case "-":
-
-            result = firstNumber - secondNumber;
-
-            break;
-
-
-
-        case "*":
-
-            result = firstNumber * secondNumber;
-
-            break;
-
-
-
-        case "/":
-
-            result = secondNumber==0 ? "Error" : firstNumber / secondNumber;
-
-            break;
-
-
-
-        case "%":
-
-            result = firstNumber % secondNumber;
-
-            break;
-
-
-    }
-
-
-    display.value=result;
-
-
-});
-
-
-
-
-
-// Clear
-
-
-clearBtn.addEventListener("click",()=>{
-
-
-    display.value="";
-
-    firstNumber="";
-
-    operator="";
-
-
-});
-
-
-
-
-
-// Delete
-
-
-deleteBtn.addEventListener("click",()=>{
-
-
-    display.value = display.value.slice(0,-1);
 
 
 });
