@@ -1,61 +1,70 @@
-# ⚡ NovaCalc - Cyberpunk Calculator Website
 
- https://dosapallisravani.github.io/OIBSIP/Level2-Task1-premium-calculator/
-## 🚀 Overview
+# ✨ NovaCalc - Premium Calculator
 
-NovaCalc is a futuristic calculator web application designed with a **cyberpunk-inspired user interface**. It combines modern web technologies with neon effects, glassmorphism elements, and a responsive layout to provide an immersive calculation experience.
+![NovaCalc Preview](https://img.shields.io/badge/Project-Premium%20Calculator-blue)
+![HTML](https://img.shields.io/badge/HTML5-orange)
+![CSS](https://img.shields.io/badge/CSS3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
 
-The project focuses on creating a visually appealing and user-friendly calculator with a next-generation interface.
+## 📌 Project Overview
 
----
+NovaCalc is a modern and responsive premium calculator web application designed with an elegant user interface and smooth user experience.
+
+The project focuses on creating a functional calculator with a stylish design, interactive buttons, and real-time calculations using JavaScript.
+
+## 🚀 Live Demo
+
+🔗 **Website Link:**  
+https://dosapallisravani.github.io/OIBSIP/Level2-Task1-premium-calculator/
 
 ## ✨ Features
 
-- ⚡ Fully functional calculator
-- 🌌 Cyberpunk neon UI design
-- 🎨 Modern glassmorphism effects
-- 🔥 Smooth animations and hover effects
-- 📱 Fully responsive design
-- 🧮 Basic arithmetic operations
-- 🌐 Interactive navigation sections
-
----
-
-## 🖥️ Sections Included
-
-### 🏠 Home
-A futuristic hero section introducing NovaCalc with a modern cyber theme.
-
-### ⭐ Features
-Highlights the key benefits and design elements of the application.
-
-### 🧮 Calculator
-A working calculator supporting:
-
-- Addition (+)
-- Subtraction (-)
-- Multiplication (×)
-- Division (÷)
-- Percentage (%)
-- Clear and Delete functions
-
-### 📖 About
-Information about the NovaCalc project and its purpose.
-
-### 📩 Contact
-Simple contact section for user interaction.
-
----
+- ✅ Modern premium UI design
+- ✅ Responsive layout for different screen sizes
+- ✅ Basic arithmetic operations
+- ✅ Addition, subtraction, multiplication, and division
+- ✅ Clear and delete functions
+- ✅ Real-time calculation display
+- ✅ Smooth button interactions
+- ✅ User-friendly interface
 
 ## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
-- Google Fonts
-- Responsive Web Design
+## 📂 Project Structure
+premium-Calculator/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+
+## 🎯 Purpose
+
+This project was developed as part of my web development internship task to improve my frontend development skills and build interactive web applications.
+
+## 👩‍💻 Developer
+
+**Sravani Dosapalli**
+
+- GitHub:  
+https://github.com/dosapallisravani
+
+- LinkedIn:  
+(Add your LinkedIn profile link here)
+
+## 📸 Project Preview
+
+(Add your calculator screenshot here)
+
+## ⭐ Future Improvements
+
+- Scientific calculator functions
+- Dark/light theme switch
+- Calculation history
+- Advanced animations
 
 ---
 
-## 📂 Project Structure
-orget to star the repository!
