@@ -186,7 +186,8 @@ header{
 
     text-align:center;
 
-    padding-top: 120px;
+    padding-top: 120px 8%;
+    gap:60px;
 
     position:relative;
 
