@@ -1,367 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NovaCalc | Premium Calculator</title>
+<title>NovaCalc</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
-
 
 <body>
 
 
-<div class="bg-overlay"></div>
+<div class="calculator">
+
+    <h2>NovaCalc</h2>
+
+    <input type="text" id="display" readonly>
 
 
-<!-- Navbar -->
+    <div class="buttons">
 
-<header>
-
-<nav>
-
-<div class="logo">
-
-<i class="fa-solid fa-calculator"></i>
-
-<span>NovaCalc</span>
-
-</div>
+        <button class="clear">C</button>
+        <button class="delete">DEL</button>
+        <button class="operator" data-value="%">%</button>
+        <button class="operator" data-value="/">÷</button>
 
 
-<ul>
-
-<li><a href="#home">Home</a></li>
-
-<li><a href="#calculator">Calculator</a></li>
-
-<li><a href="#features">Features</a></li>
-
-<li><a href="#about">About</a></li>
-
-</ul>
+        <button class="number" data-value="7">7</button>
+        <button class="number" data-value="8">8</button>
+        <button class="number" data-value="9">9</button>
+        <button class="operator" data-value="*">×</button>
 
 
-</nav>
-
-</header>
-
-
-
-<!-- Hero Section -->
-
-<section class="hero" id="home">
+        <button class="number" data-value="4">4</button>
+        <button class="number" data-value="5">5</button>
+        <button class="number" data-value="6">6</button>
+        <button class="operator" data-value="-">-</button>
 
 
-<div class="left">
+        <button class="number" data-value="1">1</button>
+        <button class="number" data-value="2">2</button>
+        <button class="number" data-value="3">3</button>
+        <button class="operator" data-value="+">+</button>
 
 
-<span class="badge">
-Premium Calculator
-</span>
+        <button class="number zero" data-value="0">0</button>
+        <button class="number" data-value=".">.</button>
+        <button class="equal">=</button>
 
 
-<h1>
-
-Simple.<br>
-Fast.<br>
-Professional.
-
-</h1>
-
-
-<p>
-
-A modern calculator designed with beautiful glassmorphism, responsive layout and smooth animations using HTML, CSS & JavaScript.
-
-</p>
-
-
-<a href="#calculator" class="hero-btn">
-Try Calculator
-</a>
-
+    </div>
 
 </div>
-
-
-
-
-<!-- Calculator -->
-
-
-<div class="calculator" id="calculator">
-
-
-<div class="screen">
-
-<input id="display" type="text" readonly>
-
-</div>
-
-
-
-<div class="keys">
-
-
-<button type="button" class="btn clear">C</button>
-
-
-<button type="button" class="btn delete">
-<i class="fa-solid fa-delete-left"></i>
-</button>
-
-
-<button type="button" class="btn operator" data-value="%">
-%
-</button>
-
-
-<button type="button" class="btn operator" data-value="/">
-÷
-</button>
-<button type="button" class="btn number" data-value="7">
-7
-</button>
-
-
-<button type="button" class="btn number" data-value="8">
-8
-</button>
-
-
-<button type="button" class="btn number" data-value="9">
-9
-</button>
-
-
-<button type="button" class="btn operator" data-value="*">
-×
-</button>
-
-<button type="button" class="btn number" data-value="4">
-4
-</button>
-
-
-<button type="button" class="btn number" data-value="5">
-5
-</button>
-
-
-<button type="button" class="btn number" data-value="6">
-6
-</button>
-
-
-<button type="button" class="btn operator" data-value="-">
--
-</button>
-
-
-<button type="button" class="btn number" data-value="1">
-1
-</button>
-
-
-<button type="button" class="btn number" data-value="2">
-2
-</button>
-
-
-<button type="button" class="btn number" data-value="3">
-3
-</button>
-
-
-<button type="button" class="btn operator" data-value="+">
-+
-</button>
-
-
-
-<button type="button" class="btn zero number" data-value="0">
-0
-</button>
-
-
-<button type="button" class="btn number" data-value=".">
-.
-</button>
-
-
-<button type="button" class="btn equal" data-value="=">
-=
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- Features -->
-
-
-<section class="features" id="features">
-
-
-<h2>
-Why Choose NovaCalc?
-</h2>
-
-
-
-<div class="feature-grid">
-
-
-<div class="card">
-
-<i class="fa-solid fa-bolt"></i>
-
-<h3>
-Fast
-</h3>
-
-<p>
-Instant calculations with smooth performance.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<i class="fa-solid fa-mobile-screen-button"></i>
-
-<h3>
-Responsive
-</h3>
-
-<p>
-Works perfectly on Desktop, Tablet and Mobile.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<h3>
-Secure Logic
-</h3>
-
-<p>
-Accurate calculations without errors.
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- About -->
-
-
-<section class="about" id="about">
-
-
-<div class="about-content">
-
-
-<h2>
-About NovaCalc
-</h2>
-
-
-<p>
-
-NovaCalc is a modern premium calculator built using HTML5, CSS3 and Vanilla JavaScript. It provides a fast, responsive and elegant user experience with smooth animations.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- Footer -->
-
-
-<footer>
-
-
-<div class="footer-content">
-
-
-<h3>
-NovaCalc
-</h3>
-
-
-<p>
-Oasis Infobyte Internship
-<br>
-Level 2 • Task 1
-</p>
-
-
-<p>
-Designed & Developed by
-<strong>Sravani Dosapalli</strong>
-</p>
-
-
-</div>
-
-
-</footer>
-
 
 
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
