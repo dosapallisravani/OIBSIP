@@ -43,12 +43,11 @@ operators.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        console.log("Operator clicked:", button.dataset.value);
-
         if (display.value === "") return;
 
         firstNumber = Number(display.value);
         operator = button.dataset.value;
+
         resetDisplay = true;
 
     });
@@ -73,48 +72,29 @@ equalBtn.addEventListener("click", () => {
 
 
 
-    switch(operator){
+   switch (operator) {
 
+    case "+":
+        result = firstNumber + secondNumber;
+        break;
 
-        case "+":
-            result = firstNumber + secondNumber;
-            break;
+    case "-":
+        result = firstNumber - secondNumber;
+        break;
 
+    case "*":
+        result = firstNumber * secondNumber;
+        break;
 
-        case "-":
-            result = firstNumber - secondNumber;
-            break;
+    case "/":
+        result = secondNumber === 0 ? "Error" : firstNumber / secondNumber;
+        break;
 
+    case "%":
+        result = firstNumber % secondNumber;
+        break;
 
-        case "*":
-            result = firstNumber * secondNumber;
-            break;
-
-
-        case "/":
-
-            if(secondNumber === 0){
-
-                result = "Error";
-
-            }
-            else{
-
-                result = firstNumber / secondNumber;
-
-            }
-
-            break;
-
-
-        case "%":
-            result = firstNumber % secondNumber;
-            break;
-
-
-    }
-
-
+}
 
     display.value = result;
 
