@@ -186,7 +186,7 @@ header{
 
     text-align:center;
 
-    padding:0 10%;
+    padding-top: 120px;
 
     position:relative;
 
@@ -206,7 +206,7 @@ header{
 
 }
 .hero-image img{
-    width:380px;
+    width:330px;
     height:500px;
     object-fit:cover;
     border-radius:20px;
@@ -228,13 +228,13 @@ header{
 .hero-content{
 
     position:relative;
-
+    display:flex;
     z-index:2;
-
+    flex-direction:column;
     max-width:900px;
-
+    justify-content:center;
     animation:fadeUp 1.2s ease;
-
+    align-items:flex-start;
 }
 
 .subtitle{
@@ -248,7 +248,7 @@ header{
     font-size:15px;
 
     margin-bottom:18px;
-
+    margin-top: 0;
 }
 
 .hero h1{
