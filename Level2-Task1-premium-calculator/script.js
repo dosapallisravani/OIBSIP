@@ -24,7 +24,7 @@ numbers.forEach(btn => {
 
     btn.addEventListener("click", () => {
 
-        if(resetDisplay){
+        if (resetDisplay) {
             display.value = "";
             resetDisplay = false;
         }
@@ -34,7 +34,6 @@ numbers.forEach(btn => {
     });
 
 });
-
 
 // =========================
 // OPERATOR BUTTONS
@@ -46,7 +45,7 @@ operators.forEach(button => {
 
         if (display.value === "") return;
 
-        firstNumber = display.value;
+        firstNumber = Number(display.value);
         operator = button.dataset.value;
         resetDisplay = true;
 
@@ -55,28 +54,24 @@ operators.forEach(button => {
 });
 equalBtn.addEventListener("click", () => {
 
-    if (firstNumber === "" || operator === "" || display.value === "") return;
-
     let secondNumber = Number(display.value);
-    let first = Number(firstNumber);
-
     let result;
 
     switch (operator) {
         case "+":
-            result = first + secondNumber;
+            result = firstNumber + secondNumber;
             break;
         case "-":
-            result = first - secondNumber;
+            result = firstNumber - secondNumber;
             break;
         case "*":
-            result = first * secondNumber;
+            result = firstNumber * secondNumber;
             break;
         case "/":
-            result = secondNumber === 0 ? "Error" : first / secondNumber;
+            result = secondNumber === 0 ? "Error" : firstNumber / secondNumber;
             break;
         case "%":
-            result = first % secondNumber;
+            result = firstNumber % secondNumber;
             break;
     }
 
