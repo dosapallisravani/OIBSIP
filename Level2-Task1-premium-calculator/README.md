@@ -1,71 +1,61 @@
-# 🧮 NovaCalc - Premium Calculator
+# ⚡ NovaCalc - Cyberpunk Calculator Website
 
-A modern, responsive calculator built using **HTML5**, **CSS3**, and **Vanilla JavaScript** as part of the **Oasis Infobyte Web Development Internship - Level 2 Task 1**.
+ https://dosapallisravani.github.io/OIBSIP/Level2-Task1-premium-calculator/
+## 🚀 Overview
 
-## 🚀 Live Demo
+NovaCalc is a futuristic calculator web application designed with a **cyberpunk-inspired user interface**. It combines modern web technologies with neon effects, glassmorphism elements, and a responsive layout to provide an immersive calculation experience.
 
-🔗 https://dosapallisravani.github.io/OIBSIP/Level2-Task1-premium-calculator/
-
-## 📌 Features
-
-- ➕ Addition
-- ➖ Subtraction
-- ✖ Multiplication
-- ➗ Division
-- 📊 Modulus (%)
-- 🔢 Decimal Calculations
-- ⌫ Backspace/Delete
-- 🗑 Clear Button
-- ⚠ Division by Zero Error Handling
-- ⌨ Keyboard Support
-- 📱 Fully Responsive Design
-- 💎 Premium Glassmorphism UI
-- 🌧 Luxury Background Design
-
-## 🛠 Technologies Used
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-
-## 📂 Project Structure
-
-```
-Level2-Task1-Calculator/
-│── index.html
-│── style.css
-│── script.js
-│── README.md
-│
-└── images/
-    ├── background.jpg
-    ├── logo.png
-```
-
-## 📷 Preview
-
-<img width="100%" src="images/preview.png" alt="Calculator Preview">
-
-## 🎯 Internship Task
-
-**Oasis Infobyte Web Development Internship**
-
-**Level 2 - Task 1**
-
-Build a fully functional calculator using HTML, CSS, and JavaScript without using `eval()`.
-
-## 👩‍💻 Developed By
-
-**Sravani Dosapalli**
-
-📧 dosapallisravani87@gmail.com
-
-🔗 LinkedIn:
-https://www.linkedin.com/in/sravani-dosapalli-619969385
-
-🔗 GitHub:
-https://github.com/dosapallisravani
+The project focuses on creating a visually appealing and user-friendly calculator with a next-generation interface.
 
 ---
 
-⭐ If you like this project, don't forget to star the repository!
+## ✨ Features
+
+- ⚡ Fully functional calculator
+- 🌌 Cyberpunk neon UI design
+- 🎨 Modern glassmorphism effects
+- 🔥 Smooth animations and hover effects
+- 📱 Fully responsive design
+- 🧮 Basic arithmetic operations
+- 🌐 Interactive navigation sections
+
+---
+
+## 🖥️ Sections Included
+
+### 🏠 Home
+A futuristic hero section introducing NovaCalc with a modern cyber theme.
+
+### ⭐ Features
+Highlights the key benefits and design elements of the application.
+
+### 🧮 Calculator
+A working calculator supporting:
+
+- Addition (+)
+- Subtraction (-)
+- Multiplication (×)
+- Division (÷)
+- Percentage (%)
+- Clear and Delete functions
+
+### 📖 About
+Information about the NovaCalc project and its purpose.
+
+### 📩 Contact
+Simple contact section for user interaction.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Google Fonts
+- Responsive Web Design
+
+---
+
+## 📂 Project Structure
+orget to star the repository!
