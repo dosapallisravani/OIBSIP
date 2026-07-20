@@ -83,7 +83,7 @@ nav ul li a:hover{
     rgba(5,8,22,.7),
     rgba(5,8,22,.9)
     ),
-    url("your-background-image.jpg");
+    url("images/background.png");
 
     background-size:cover;
     background-position:center;
@@ -381,3 +381,203 @@ width:100%;
 
 }
 
+/* ===== CYBERPUNK ANIMATIONS ===== */
+
+
+/* Moving Neon Background */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent 95%,
+    rgba(0,247,255,0.08) 100%
+    );
+
+    background-size:60px 60px;
+
+    animation:gridMove 8s linear infinite;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+@keyframes gridMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(60px);
+    }
+
+}
+
+
+
+
+/* Hero Glow Animation */
+
+.hero h1{
+
+    animation:
+    glowText 2s infinite alternate;
+
+}
+
+
+@keyframes glowText{
+
+    from{
+
+        text-shadow:
+        0 0 10px #00f7ff;
+
+    }
+
+    to{
+
+        text-shadow:
+        0 0 30px #ff00cc,
+        0 0 50px #00f7ff;
+
+    }
+
+}
+
+
+
+
+/* Calculator Floating Effect */
+
+
+.calculator{
+
+    animation:
+    float 4s ease-in-out infinite;
+
+}
+
+
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+
+
+
+/* Neon Button Pulse */
+
+
+.hero button{
+
+    animation:
+    pulse 2s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:
+        0 0 10px #00f7ff;
+
+    }
+
+
+    50%{
+
+        box-shadow:
+        0 0 35px #00f7ff;
+
+    }
+
+
+    100%{
+
+        box-shadow:
+        0 0 10px #00f7ff;
+
+    }
+
+}
+
+
+
+
+/* Card Entrance Animation */
+
+
+.card{
+
+    animation:
+    slideUp 1s ease;
+
+}
+
+
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+
+/* Smooth Button Click */
+
+.buttons button:active{
+
+    transform:scale(0.9);
+
+}
