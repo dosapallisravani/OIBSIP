@@ -174,7 +174,6 @@ header{
 
 
 /*================ HERO SECTION ================*/
-
 .hero{
 
     min-height:100vh;
@@ -197,8 +196,7 @@ header{
         rgba(18,35,12,.45),
         rgba(18,35,12,.55)
     ),
-
-    url("images/herobg.jpg");
+   url("images/herobg.jpg");
 
     background-size:cover;
 
@@ -206,6 +204,15 @@ header{
 
     background-attachment:fixed;
 
+}
+.hero-image img{
+    width:380px;
+    height:500px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid #C89B3C;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    filter:contrast(115%) brightness(105%);
 }
 
 .overlay{
