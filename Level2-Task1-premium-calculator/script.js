@@ -1,4 +1,3 @@
-
 const display = document.getElementById("display");
 
 const numbers = document.querySelectorAll(".number");
