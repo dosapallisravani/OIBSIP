@@ -74,8 +74,7 @@ The design represents the simplicity, kindness, and cultural values associated w
 ---
 
 ## 🌐 Live Demo
-https://github.com/dosapallisravani/OIBSIP/Level2-Task2-Tribute-page/
-
+https://dosapallisravani.github.io/OIBSIP/Level2-Task2-Tribute-page/
 ---
 
 ## 👩‍💻 Author
