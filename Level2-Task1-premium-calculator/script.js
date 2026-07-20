@@ -39,25 +39,21 @@ numbers.forEach(btn => {
 
 
 // Operators
+operators.forEach(button => {
 
-operators.forEach(btn => {
+    button.addEventListener("click", () => {
 
-    btn.addEventListener("click", () => {
+        console.log("Operator clicked:", button.dataset.value);
 
-        if(display.value === "") return;
-
+        if (display.value === "") return;
 
         firstNumber = Number(display.value);
-
-        operator = btn.dataset.value;
-
-
+        operator = button.dataset.value;
         resetDisplay = true;
 
     });
 
 });
-
 
 
 // Equal
