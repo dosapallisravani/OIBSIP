@@ -1,113 +1,243 @@
-// ===============================
-// DOKKA SEETHAMMA TRIBUTE PAGE JS
-// ===============================
+/*=========================================
+     DOKKA SEETHAMMA TRIBUTE PAGE
+              script.js
+=========================================*/
 
 
-// Explore Button Scroll
+//==========================
+// Smooth Scroll Navigation
+//==========================
 
-const exploreBtn = document.querySelector(".hero-content button");
+document.querySelectorAll('.nav-links a').forEach(link => {
 
-exploreBtn.addEventListener("click", () => {
+    link.addEventListener('click', function(e){
 
-    document.querySelector("#story").scrollIntoView({
-        behavior:"smooth"
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        target.scrollIntoView({
+
+            behavior: 'smooth'
+
+        });
+
     });
 
 });
 
 
 
-// Scroll Reveal Animation
+//==========================
+// Hero Button Scroll
+//==========================
 
-const sections = document.querySelectorAll("section");
+const heroBtn = document.querySelector(".btn");
 
+if(heroBtn){
 
-const revealOnScroll = () => {
+heroBtn.addEventListener("click",(e)=>{
 
-    sections.forEach(section => {
+e.preventDefault();
 
-        const sectionTop = section.getBoundingClientRect().top;
+document.querySelector("#story").scrollIntoView({
 
-        const screenPosition = window.innerHeight - 100;
-
-
-        if(sectionTop < screenPosition){
-
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0)";
-
-        }
-
-    });
-
-};
-
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-
-// Initial Section Animation Style
-
-sections.forEach(section => {
-
-    section.style.opacity = "0";
-    section.style.transform = "translateY(50px)";
-    section.style.transition = "1s ease";
+behavior:"smooth"
 
 });
 
+});
 
-// Navbar shadow on scroll
+}
 
-const header = document.querySelector("header");
 
+
+//==========================
+// Navbar Shadow
+//==========================
+
+const navbar=document.querySelector(".navbar");
 
 window.addEventListener("scroll",()=>{
 
+if(window.scrollY>50){
 
-    if(window.scrollY > 50){
+navbar.style.background="rgba(255,248,231,.95)";
 
-        header.style.boxShadow =
-        "0 5px 20px rgba(0,0,0,0.15)";
+navbar.style.boxShadow="0 10px 25px rgba(0,0,0,.12)";
 
-    }
+}
 
-    else{
+else{
 
-        header.style.boxShadow="none";
+navbar.style.background="rgba(255,255,255,.15)";
 
-    }
+navbar.style.boxShadow="none";
 
+}
 
 });
 
 
 
-// Timeline Card Animation
 
-const cards = document.querySelectorAll(
-".timeline-card, .card"
+//==========================
+// Active Navigation Link
+//==========================
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const sectionTop=section.offsetTop-120;
+
+const sectionHeight=section.clientHeight;
+
+if(pageYOffset>=sectionTop){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+
+
+
+//==========================
+// Scroll Reveal Animation
+//==========================
+
+const revealElements=document.querySelectorAll(
+
+".story, .service, .legacy, .quote-section, .service-card"
+
 );
 
+const reveal=()=>{
 
-cards.forEach(card=>{
+revealElements.forEach(el=>{
 
+const windowHeight=window.innerHeight;
 
-    card.addEventListener("mouseenter",()=>{
+const revealTop=el.getBoundingClientRect().top;
 
-        card.style.transition="0.3s";
-        card.style.transform="translateY(-10px)";
+const revealPoint=120;
 
-    });
+if(revealTop<windowHeight-revealPoint){
 
+el.style.opacity="1";
 
+el.style.transform="translateY(0)";
 
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform="translateY(0)";
-
-    });
-
+}
 
 });
+
+};
+
+revealElements.forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(60px)";
+
+el.style.transition="all .8s ease";
+
+});
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+
+
+
+//==========================
+// Image Hover Animation
+//==========================
+
+document.querySelectorAll("img").forEach(img=>{
+
+img.addEventListener("mouseenter",()=>{
+
+img.style.transform="scale(1.04)";
+
+});
+
+img.addEventListener("mouseleave",()=>{
+
+img.style.transform="scale(1)";
+
+});
+
+});
+
+
+
+
+//==========================
+// Scroll Progress Bar
+//==========================
+
+const progress=document.createElement("div");
+
+progress.style.position="fixed";
+
+progress.style.top="0";
+
+progress.style.left="0";
+
+progress.style.height="5px";
+
+progress.style.width="0%";
+
+progress.style.zIndex="99999";
+
+progress.style.background="#C89B3C";
+
+document.body.appendChild(progress);
+
+window.addEventListener("scroll",()=>{
+
+const totalHeight=document.documentElement.scrollHeight-window.innerHeight;
+
+const progressWidth=(window.pageYOffset/totalHeight)*100;
+
+progress.style.width=progressWidth+"%";
+
+});
+
+
+
+
+//==========================
+// Footer Year
+//==========================
+
+const footer=document.querySelector("footer p");
+
+if(footer){
+
+footer.innerHTML=`© ${new Date().getFullYear()} Tribute to Dokka Seethamma | Designed by Sravani Dosapalli`;
+
+}
