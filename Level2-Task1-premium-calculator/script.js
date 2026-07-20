@@ -44,53 +44,47 @@ operators.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        if(display.value === "") return;
+        if (display.value === "") return;
 
         firstNumber = display.value;
-
-        operator = button.getAttribute("data-value");
-
-        display.value = "";
+        operator = button.dataset.value;
+        resetDisplay = true;
 
     });
 
 });
 equalBtn.addEventListener("click", () => {
 
-    if(firstNumber === "" || operator === "") return;
+    if (firstNumber === "" || operator === "" || display.value === "") return;
 
-
-    let secondNumber = display.value;
+    let secondNumber = Number(display.value);
+    let first = Number(firstNumber);
 
     let result;
 
-
-    switch(operator){
-
+    switch (operator) {
         case "+":
-            result = Number(firstNumber) + Number(secondNumber);
+            result = first + secondNumber;
             break;
-
         case "-":
-            result = Number(firstNumber) - Number(secondNumber);
+            result = first - secondNumber;
             break;
-
         case "*":
-            result = Number(firstNumber) * Number(secondNumber);
+            result = first * secondNumber;
             break;
-
         case "/":
-            result = Number(firstNumber) / Number(secondNumber);
+            result = secondNumber === 0 ? "Error" : first / secondNumber;
             break;
-
         case "%":
-            result = Number(firstNumber) % Number(secondNumber);
+            result = first % secondNumber;
             break;
-
     }
 
-
     display.value = result;
+
+    firstNumber = "";
+    operator = "";
+    resetDisplay = true;
 
 });
 // Clear
