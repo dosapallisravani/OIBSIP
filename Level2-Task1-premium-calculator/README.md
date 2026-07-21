@@ -53,7 +53,7 @@ This project was developed as part of my web development internship task to impr
 https://github.com/dosapallisravani
 
 - LinkedIn:  
-(Add your LinkedIn profile link here)
+https://www.linkedin.com/in/sravani-dosapalli-619969385
 
 
 
