@@ -55,9 +55,7 @@ https://github.com/dosapallisravani
 - LinkedIn:  
 (Add your LinkedIn profile link here)
 
-## 📸 Project Preview
 
-(Add your calculator screenshot here)
 
 ## ⭐ Future Improvements
 
